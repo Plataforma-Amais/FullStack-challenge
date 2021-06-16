@@ -1,6 +1,6 @@
-# Plataforma A+ - Desafio FullStack
+# Plataforma A+ - Desafío FullStack
 
-Estamos a procura de full-stack Developers para fazerem parte do nosso time e contribuírem com a transformação digital das escolas.
+Estamos à procura de full-stack Developers para fazerem parte do nosso time e contribuírem com a transformação digital das escolas.
 
 ## Quem somos
 
@@ -14,7 +14,7 @@ Acompanhe nossas vagas no [Linkedin](https://www.linkedin.com/company/plataforma
 
 ## Desafio
 
-Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em suas Turmas, referentes as séries do Ensino Fundamental, em uma Escola Pública.
+Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em suas Turmas, referentes às séries do Ensino Fundamental, em uma Escola Pública.
 
 - A aplicação deve apresentar uma lista de Escolas Públicas:
   - Deve permitir adicionar, modificar e excluir Escolas.
@@ -24,7 +24,7 @@ Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em s
   - Cada Turma possui um Professor associado a ela.
     - Um Professor poderá estar associado a mais de uma Turma.
       - Deve permitir que o Diretor possa adicionar e excluir Professores em uma Turma.
-  - Ao entrar nos detalhes da Turma, os alunos e professores relacionados deve ser exibidos.
+  - Ao entrar nos detalhes da Turma, os alunos e professores relacionados devem ser exibidos.
     - Alunos devem ser adicionados ou excluídos das Turmas.
 - Os Alunos possuem informações mínimas que devem estar contidas em seus cadastros, como:
   - Nome do Aluno
@@ -35,15 +35,15 @@ Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em s
 
 ### Recomendações
 
-- Módulos de frontend e backend devem ser desenvolvido de forma separada.
+- Módulos de frontend e backend devem ser desenvolvidos de forma separada.
 - O backend pode ser feito utilizando uma das seguintes linguagens: Javascript, Typescript, Python ou C#, nesta ordem de preferência.
-- O frontend poderá ser desenvolvido com JavaScript, Typescript, Dart `(No caso de um app Flutter como frontend)` ou qualquer framework/ferramenta que suporte ou utilizem essas tecnologias.
-- Para camada de persistência, utilize NoSQL como MongoDB ou um SGBD relacional como o PostgreSQL. A modelagem de documentos ou entidades é livre e de acordo com o escolhido e utilizado pela sua solução.
+- O frontend poderá ser desenvolvido com JavaScript, Typescript, Dart `(No caso de um app Flutter como frontend)` ou qualquer framework/ferramenta que suporte ou utilize essas tecnologias.
+- Para camada de persistência, utilize NoSQL como o MongoDB ou um SGBD relacional como o PostgreSQL. A modelagem de documentos ou entidades é livre e de acordo com o escolhido e utilizado pela sua solução.
 - O que for submetido, mesmo que incompleto, deve funcionar.
 
 ### Instruções
 
-1. Faça o **`Fork`** desse repositório;
+1. Faça o **`Fork`** deste repositório;
 2. Nomeie o projeto da seguinte maneira: **fullstack-challenge-`nome-sobrenome`**;
 3. Ao concluir o desafio, publique em seu próprio repositório, **com acesso `público` habilitado** e envie o link para o recrutador.
 
@@ -71,7 +71,7 @@ Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em s
 
 ### Diferenciais
 
-- Utilizar layout responsívo.
+- Utilizar layout responsivo.
 - Boas práticas de UX na solução.
 - Backend dockerizado.
 - Documentação.
