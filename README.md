@@ -1,4 +1,4 @@
-# Plataforma A+ - Desafío FullStack
+# Plataforma A+ - Desafio FullStack
 
 Estamos à procura de full-stack Developers para fazerem parte do nosso time e contribuírem com a transformação digital das escolas.
 
