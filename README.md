@@ -45,7 +45,7 @@ Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em s
 
 1. Faça o **`Fork`** deste repositório;
 2. Nomeie o projeto da seguinte maneira: **fullstack-challenge-`nome-sobrenome`**;
-3. Ao concluir o desafio, publique em seu próprio repositório, **com acesso `público` habilitado** e envie o link para o recrutador.
+3. Ao concluir o desafio, publique em seu próprio repositório, **com acesso `público` habilitado** e envie o link para o recrutador ou para os e-mails <alex.souza@plataformaamais.com.br> e <bruno.souza@plataformaamais.com.br>.
 
 ### Considerações gerais
 
