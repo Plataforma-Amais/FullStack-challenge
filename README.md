@@ -1,16 +1,44 @@
-# Plataforma A+ - Desafio FullStack
+# fullstack-challenge-flavio-santos-oliveira
 
-Estamos à procura de full-stack Developers para fazerem parte do nosso time e contribuírem com a transformação digital das escolas.
+Desafio Técnico
 
-## Quem somos
+Empresa: Plataforma A+
 
-A Plataforma A+ é uma EdTech que une um grupo de engenheiros de softwares, designers, analistas e professores apaixonados em gerar inovação para transformar e potencializar a capacidade de aprendizagem do ser humano.
+## Para executar aplicação
 
-Siga-nos no [Linkedin](https://www.linkedin.com/company/plataformaamais).
+- Efetue o clone do repositório em sua máquina
 
-Acompanhe nossas vagas no [Linkedin](https://www.linkedin.com/company/plataformaamais/jobs/).
+`git clone https://github.com/flaviosoliver/fullStack-challenge-flavio-santos-oliveira.git`
 
----
+- Entre na pasta onde foi criado o repositório
+
+`cd fullstack-challenge-flavio-santos-oliveira`
+
+- Execute a instalação de dependências e a inicialização da aplicação
+
+`npm run install-start-full`
+
+## Back-End
+
+SGBD: MySQL
+
+Ambiente de execução: Node.JS
+
+Framework Node.JS: Express.JS
+
+Arquitetura: ORM
+
+Framework ORM: Sequelize
+
+## Front-End
+
+Interface: React.JS
+
+### Autor
+
+Flávio Santos Oliveira | email: flavsoliver@gmail.com
+
+Brasil, JUNHO - 2021.
 
 ## Desafio
 
@@ -32,52 +60,3 @@ Desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em s
   - Contatos
 - Os Professores devem ser capazes de adicionar observações sobre a Turma e sobre determinado Aluno.
 - A solução deve possibilitar buscar com base em alguma informação, de escolha livre, contida nas entidades.
-
-### Recomendações
-
-- Módulos de frontend e backend devem ser desenvolvidos de forma separada.
-- O backend pode ser feito utilizando uma das seguintes linguagens: Javascript, Typescript, Python ou C#, nesta ordem de preferência.
-- O frontend poderá ser desenvolvido com JavaScript, Typescript, Dart `(No caso de um app Flutter como frontend)` ou qualquer framework/ferramenta que suporte ou utilize essas tecnologias.
-- Para camada de persistência, utilize NoSQL como o MongoDB ou um SGBD relacional como o PostgreSQL. A modelagem de documentos ou entidades é livre e de acordo com o escolhido e utilizado pela sua solução.
-- O que for submetido, mesmo que incompleto, deve funcionar.
-
-### Instruções
-
-1. Faça o **`Fork`** deste repositório;
-2. Nomeie o projeto da seguinte maneira: **fullstack-challenge-`nome-sobrenome`**;
-3. Ao concluir o desafio, publique em seu próprio repositório, **com acesso `público` habilitado** e envie o link para os e-mails <alex.souza@plataformaamais.com.br> e/ou <bruno.souza@plataformaamais.com.br>.
-
-### Considerações gerais
-
-- Utilize as melhores práticas que você conhece.
-- Utilize ferramentas visuais como desenhos, fluxos e diagramas para explicar sua solução, sem muita formalidade, apenas para passar uma idéia geral e/ou explicar pontos interessantes.
-- As opções de tecnologias são baseadas no que utilizamos para desenvolver soluções hoje. Porém, na Plataforma A+, o foco no resultado é muito valorizado, por isso não se sinta limitado e caso tenha implementações fora dos opcionais oferecidos de tecnologias e ferramentas, foque em responder o desafio com o que conhece.
-- Caso não termine o desafio, utilizaremos o que entregou como base para a conversa.
-- Lembre-se que iremos analisar seu desafio e terá a chance de explicar sua estratégia para pessoas de tecnologia.
-- Teremos uma conversa agradável e objetiva, onde falaremos sobre tech, com base neste desafio.
-
-### Critérios de avaliação
-
-- Organização.
-- Manutenibilidade.
-- Legibilidade, limpeza, clareza do código​.
-- Resultado funcional.
-- Flexibilidade da aplicação:​ Parametrização, agnóstico ao ambiente, escalabilidade, etc.
-- Segurança​.
-- Documentação objetiva.
-- Cobertura de código.
-- Escolhas técnicas e suas justificativas.
-- Histórico de commits​.
-
-### Diferenciais
-
-- Utilizar layout responsivo.
-- Boas práticas de UX na solução.
-- Backend dockerizado.
-- Documentação.
-- Testes unitários e de integração.
-- Uso de TDD.
-- Uso de patterns.
-- Abordagem para desenvolvimento de software.
-
-**Boa sorte!**

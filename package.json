@@ -1,0 +1,26 @@
+{
+  "name": "fullstack-challenge-flavio-santosoliveira",
+  "version": "1.0.0",
+  "description": "Desafio tecnico Plataforma A+",
+  "main": "index.js",
+  "scripts": {
+    "install-back": "npm --prefix back-end/ install",
+    "install-front": "npm --prefix front-end/ install",
+    "start-back": "npm --prefix back-end/ run start&",
+    "debug-back": "npm --prefix back-end/ run debug&",
+    "start-front": "npm --prefix front-end/ run start&",
+    "start": "npm run start-back && npm run start-front",
+    "install-start-full": "npm run install-back && npm run install-front && npm run start-back && npm run start-front",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flaviosoliver/fullstack-challenge-flavio-santosoliveira.git"
+  },
+  "author": "Flavio Santos Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flaviosoliver/fullstack-challenge-flavio-santosoliveira/issues"
+  },
+  "homepage": "https://github.com/flaviosoliver/fullstack-challenge-flavio-santosoliveira#readme"
+}

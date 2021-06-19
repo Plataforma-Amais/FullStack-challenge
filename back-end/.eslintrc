@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "extends": [
+    "trybe-backend"
+  ],
+  "ignorePatterns": [
+    "**/migrations/*.js", "**/models/*.js"],
+  "rules": {
+    
+  }
+}
