@@ -1,5 +1,5 @@
 const { admin } = require('../models');
-const { authNewSchool } = require('../schemas');
+const { authNewSchool, authRemoveSchool } = require('../schemas');
 
 const getUsers = async () => admin.getAllUsers();
 
@@ -17,10 +17,16 @@ const createSchool = async (newSchool) => {
   await admin.createSchool({ ...newSchool, director: checkDirector });
 };
 
+const removeSchool = async (schoolId) => {
+  authRemoveSchool(schoolId);
+  return admin.removeSchool(schoolId);
+};
+
 module.exports = {
   getUsers,
   getUsersByProfile,
   removeUser,
   getAllSchools,
   createSchool,
+  removeSchool,
 };

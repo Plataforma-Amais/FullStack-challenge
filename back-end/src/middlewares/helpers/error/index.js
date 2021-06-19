@@ -74,34 +74,44 @@ module.exports = {
     customCode: 'C_ERR_SCHOOL_MISSING',
     customMessage: 'Error: missing data for new school.',
   },
-  C_ERR_SCHOOL_NAME_MISSING: {
-    statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_NAME_MISSING',
-    customMessage: 'Error: name of new school is missing.',
-  },
   C_ERR_SCHOOL_TYPE_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_SCHOOL_TYPE_MISSING',
     customMessage: 'Error: type of new school is missing.',
-  },
-  C_ERR_SCHOOL_ADDRESS_MISSING: {
-    statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_ADDRESS_MISSING',
-    customMessage: 'Error: address of new school is missing.',
-  },
-  C_ERR_SCHOOL_NAME_INVALID: {
-    statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_NAME_INVALID',
-    customMessage: 'Error: name of new school is invalid (must be string).',
   },
   C_ERR_SCHOOL_TYPE_INVALID: {
     statusCode: 400,
     customCode: 'C_ERR_SCHOOL_TYPE_INVALID',
     customMessage: 'Error: type of new school is invalid.',
   },
+  C_ERR_SCHOOL_NAME_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_NAME_MISSING',
+    customMessage: 'Error: name of new school is missing.',
+  },
+  C_ERR_SCHOOL_NAME_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_NAME_INVALID',
+    customMessage: 'Error: name of new school is invalid (must be string).',
+  },
+  C_ERR_SCHOOL_ADDRESS_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ADDRESS_MISSING',
+    customMessage: 'Error: address of new school is missing.',
+  },
   C_ERR_SCHOOL_ADDRESS_INVALID: {
     statusCode: 400,
     customCode: 'C_ERR_SCHOOL_ADDRESS_INVALID',
     customMessage: 'Error: address of new school is invalid (must be string).',
+  },
+  C_ERR_SCHOOL_ID_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ID_MISSING',
+    customMessage: 'Error: school Id missing.',
+  },
+  C_ERR_SCHOOL_ID_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ID_INVALID',
+    customMessage: 'Error: school Id is invalid.',
   },
 };

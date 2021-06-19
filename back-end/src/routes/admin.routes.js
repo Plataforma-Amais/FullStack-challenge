@@ -9,8 +9,8 @@ admin.post('/schools/create',
   middlewares.authToken, middlewares.authAdmin, controllers.createSchool);
 // admin.put('/schools/edit',
 //   middlewares.authToken, middlewares.authAdmin, controllers.editSchool);
-// admin.delete('/schools/',
-//   middlewares.authToken, middlewares.authAdmin, controllers.removeSchool);
+admin.delete('/school/',
+  middlewares.authToken, middlewares.authAdmin, controllers.removeSchool);
 admin.get('/schools/',
   middlewares.authToken, middlewares.authAdmin, controllers.getSchools);
 admin.get('/users/:profile',

@@ -33,10 +33,17 @@ const getAllSchools = async () => {
 };
 
 const createSchool = async (newSchool) => {
-  const createdSchool = await connection()
+  const result = await connection()
   .then((db) => db.collection('schools').insertOne(newSchool, { _id: 0 }));
 
-  return createdSchool;
+  return result;
+};
+
+const removeSchool = async (schoolId) => {
+  const result = await connection()
+  .then((db) => db.collection('schools').deleteOne({ _id: ObjectId(schoolId) }));
+
+  return result;
 };
 
 module.exports = {
@@ -45,4 +52,5 @@ module.exports = {
   removeUser,
   getAllSchools,
   createSchool,
+  removeSchool,
 };
