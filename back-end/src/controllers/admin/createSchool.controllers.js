@@ -5,13 +5,12 @@ const { schoolsError } = require('./error');
 module.exports = async (req, res, next) => {
   try {
     const { body: payload } = req;
-    await admin.createSchool(payload);
+    const result = await admin.createSchool(payload);
     return res.status(StatusCodes.OK).json({
       message: 'Success',
-      schoolCreated: payload,
+      schoolCreated: result,
     });
   } catch (err) {
-    console.log(err);
     return next({ ...schoolsError, err });
   }
 };

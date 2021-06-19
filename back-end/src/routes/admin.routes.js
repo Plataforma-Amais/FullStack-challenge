@@ -7,8 +7,8 @@ const admin = express.Router();
 
 admin.post('/schools/create',
   middlewares.authToken, middlewares.authAdmin, controllers.createSchool);
-// admin.put('/schools/edit',
-//   middlewares.authToken, middlewares.authAdmin, controllers.editSchool);
+admin.put('/schools/edit',
+  middlewares.authToken, middlewares.authAdmin, controllers.updateSchool);
 admin.delete('/school/',
   middlewares.authToken, middlewares.authAdmin, controllers.removeSchool);
 admin.get('/schools/',

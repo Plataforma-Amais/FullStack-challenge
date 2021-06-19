@@ -5,7 +5,7 @@ const error = {
   invalidSchoolId: 'C_ERR_SCHOOL_ID_INVALID',
 };
 
-const authRemoveSchool = (schoolId) => {
+const authSchoolId = (schoolId) => {
   switch (true) {
     case isBlank(schoolId): throw new Error(error.missingSchoolId);
     case isNotString(schoolId): throw new Error(error.invalidSchoolIds);
@@ -13,4 +13,4 @@ const authRemoveSchool = (schoolId) => {
   }
 };
 
-module.exports = authRemoveSchool;
+module.exports = authSchoolId;

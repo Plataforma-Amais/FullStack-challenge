@@ -12,6 +12,7 @@ module.exports = async (req, res, next) => {
         : 'School not found, nothing removed.',
     });
   } catch (err) {
+    console.log(err);
     return next({ ...adminError, err });
   }
 };

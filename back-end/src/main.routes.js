@@ -12,7 +12,7 @@ const {
 
 const routes = express.Router();
 
-routes.use('/schoolsRouter', schoolsRouter);
+routes.use('/schools', schoolsRouter);
 routes.use('/login', sessionRouter);
 routes.use('/user', usersRouter);
 routes.use('/admin', adminRouter);
