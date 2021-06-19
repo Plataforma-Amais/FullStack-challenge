@@ -1,13 +1,13 @@
 const profileTypes = [
   'admin',
   'director',
-  'teacher'
+  'teacher',
 ];
 
 const schoolTypes = {
   0: 'municipal',
   1: 'estadual',
-  2: 'federal'
+  2: 'federal',
 };
 
 module.exports = {

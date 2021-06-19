@@ -4,11 +4,6 @@ module.exports = {
     customCode: 'C_ERR_USER_NOT_FOUND',
     customMessage: 'Login failed. User not found.',
   },
-  C_ERR_SALE_NOT_FOUND: {
-    statusCode: 404,
-    customCode: 'C_ERR_SALE_NOT_FOUND',
-    customMessage: 'Error: sale not found.',
-  },
   C_ERR_INVALID_CRED: {
     statusCode: 401,
     customCode: 'C_ERR_INVALID_CRED',
@@ -44,11 +39,6 @@ module.exports = {
     customCode: 'C_ERR_NAME_INVALID',
     customMessage: 'Name must be at least 12 characters.',
   },
-  ERROR_USER_PROFILE: {
-    statusCode: 400,
-    customCode: 'C_ERR_UPDATE_PROFILE_UNAVAIBLE',
-    customMessage: 'Update profile failed.',
-  },
   C_ERR_PROFILE_INVALID: {
     statusCode: 400,
     customCode: 'C_ERR_PROFILE_INVALID',
@@ -64,6 +54,11 @@ module.exports = {
     customCode: 'C_ERR_NO_TOKEN',
     customMessage: 'Authentication token is missing.',
   },
+  C_ERR_NO_USER_TOKEN: {
+    statusCode: 500,
+    customCode: 'C_ERR_NO_USER_TOKEN',
+    customMessage: 'Unexpected token error',
+  },
   C_ERR_ACC_DND: {
     statusCode: 403,
     customCode: 'C_ERR_ACC_DND',
@@ -74,34 +69,39 @@ module.exports = {
     customCode: 'C_ERR_NOT_FOUND',
     customMessage: 'Not found.',
   },
-  C_ERR_NO_PRODS: {
+  C_ERR_SCHOOL_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_NO_PRODS',
-    customMessage: 'There are no products in this sale.',
+    customCode: 'C_ERR_SCHOOL_MISSING',
+    customMessage: 'Error: missing data for new school.',
   },
-  C_ERR_INVALID_PRODS: {
+  C_ERR_SCHOOL_NAME_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_INVALID_PRODS',
-    customMessage: 'Invalid products id or quantity',
+    customCode: 'C_ERR_SCHOOL_NAME_MISSING',
+    customMessage: 'Error: name of new school is missing.',
   },
-  C_ERR_INVALID_DELV: {
+  C_ERR_SCHOOL_TYPE_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_INVALID_DELV',
-    customMessage: 'Invalid delivery address or number',
+    customCode: 'C_ERR_SCHOOL_TYPE_MISSING',
+    customMessage: 'Error: type of new school is missing.',
   },
-  C_ERR_NO_USER_TOKEN: {
-    statusCode: 500,
-    customCode: 'C_ERR_NO_USER_TOKEN',
-    customMessage: 'Unexpected token error',
-  },
-  C_ERR_PRICE: {
+  C_ERR_SCHOOL_ADDRESS_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_PRICE',
-    customMessage: 'Error. Price inconsistency',
+    customCode: 'C_ERR_SCHOOL_ADDRESS_MISSING',
+    customMessage: 'Error: address of new school is missing.',
   },
-  C_ERR_INVALID_STATUS: {
+  C_ERR_SCHOOL_NAME_INVALID: {
     statusCode: 400,
-    customCode: 'C_ERR_INVALID_STATUS',
-    customMessage: 'Error. Status is either empty or invalid.',
+    customCode: 'C_ERR_SCHOOL_NAME_INVALID',
+    customMessage: 'Error: name of new school is invalid (must be string).',
+  },
+  C_ERR_SCHOOL_TYPE_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_TYPE_INVALID',
+    customMessage: 'Error: type of new school is invalid.',
+  },
+  C_ERR_SCHOOL_ADDRESS_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ADDRESS_INVALID',
+    customMessage: 'Error: address of new school is invalid (must be string).',
   },
 };

@@ -32,9 +32,17 @@ const getAllSchools = async () => {
   return results;
 };
 
+const createSchool = async (newSchool) => {
+  const createdSchool = await connection()
+  .then((db) => db.collection('schools').insertOne(newSchool, { _id: 0 }));
+
+  return createdSchool;
+};
+
 module.exports = {
   getAllUsers,
   getUsersByProfile,
   removeUser,
   getAllSchools,
+  createSchool,
 };

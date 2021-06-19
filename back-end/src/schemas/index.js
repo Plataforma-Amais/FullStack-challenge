@@ -1,15 +1,13 @@
 const authLogin = require('./authLogin.schemas');
 const authRegisterUser = require('./authRegisterUser.schemas');
-const authDetailsSale = require('./authDetailsSale.schemas');
-const authNewSale = require('./authNewSale.schemas');
-const authUpdateSale = require('./authUpdateSale.schemas');
+const authNewSchool = require('./authNewSchool.schemas');
+const authUpdateSchool = require('./authUpdateSchool.schemas');
 const utils = require('./utils');
 
 module.exports = {
   authLogin,
   authRegisterUser,
-  authDetailsSale,
-  authNewSale,
-  authUpdateSale,
+  authNewSchool,
+  authUpdateSchool,
   utils,
 };
