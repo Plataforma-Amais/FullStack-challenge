@@ -1,0 +1,72 @@
+{
+  "name": "front-end",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.5.0",
+    "@testing-library/user-event": "7.2.1",
+    "axios": "^0.19.2",
+    "eslint-config-trybe-frontend": "1.2.0",
+    "moment": "^2.29.1",
+    "prop-types": "^15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-moment": "^1.1.1",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.1",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test-coverage": "react-scripts test --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .",
+    "lint:styles": "stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.js",
+      "./services/renderWithRouter",
+      "./services/history",
+      "App.test.js"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcovonly",
+      "text",
+      "clover"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.0",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "typescript": "2.8.1",
+    "eslint-plugin-sonarjs": "0.5.0",
+    "stylelint": "13.8.0",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "4.1.0"
+  }
+}

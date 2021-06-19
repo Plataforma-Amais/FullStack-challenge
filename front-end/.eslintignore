@@ -1,0 +1,6 @@
+*.test.js
+serviceWorker.js
+setupTests.js
+.gitattributes
+src/App.js
+src/styles

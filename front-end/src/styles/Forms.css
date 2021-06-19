@@ -1,0 +1,15 @@
+.inputError span {
+  color: var(--alert);
+  font-size: 0.8em;
+}
+
+.inputError span:before {
+  content: 'erro';
+  display: inline;
+  margin: 0 3px;
+}
+
+label {
+  display: block;
+  margin: 2px 5px;
+}

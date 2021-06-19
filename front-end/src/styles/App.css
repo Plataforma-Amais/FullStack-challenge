@@ -1,0 +1,221 @@
+/* @media (min-width: 481px) and (max-width: 767px) */
+
+:root {
+  --bg-color: #2e3440;
+  --wrapper-bg-color: #3b4252;
+  --element-bg-color: #434c5e;
+  --bright-element-bg-color: #4c566a;
+  --primary-text-color: #eceff4;
+  --second-text-color: #e5e9f0;
+  --tertiary-text-color: #d8dee9;
+  --call-action: #88c0d0;
+  --primary-att: #8fbcbb;
+  --secondary-att: #81a1c1;
+  --tertiary-att: #5e81ac;
+  --danger: #bf616a;
+  --alert: #d08770;
+  --warning: #ebcb8b;
+  --success: #a3be8c;
+  --purple-attention: #b48ead;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+  font-size: 16px;
+}
+
+button {
+  background-color: var(--tertiary-att);
+  border: none;
+  border-radius: 3px;
+  color: var(--text-color);
+  font-size: 0.9em;
+  margin: 2px 4px;
+  padding: 8px 12px;
+}
+
+button:hover {
+  background-color: var(--call-action);
+}
+
+
+button.alert {
+  background-color: var(--alert);
+}
+
+button.attention {
+  background-color: var(--warning);
+}
+
+button.success {
+  background-color: var(--success);
+  color: snow;
+}
+
+button:disabled {
+  background-color: lightgray;
+  color: grey;
+}
+
+
+.login-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: auto;
+  max-width: 700px;
+}
+
+.logo-wrapper {
+  align-self: strech;
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 25px 0;
+  justify-self: center;
+}
+
+.logo-wrapper h1 {
+  --letter-space: 18px;
+  align-self: center;
+  display: inline-block;
+  font-family: 'Kontanter Bold', sans-serif;
+  font-size: 11vw;
+  letter-spacing: var(--letter-space);
+  margin: 20px 0 0 var(--letter-space);
+  max-width: 100%;
+  text-shadow: 0px 2px 25px rgba(0, 0, 0, 0.3), 0px 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.login-logo {
+  align-self: center;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  margin: 0;
+  min-height: 120px;
+  height: 19vw;
+}
+
+.login-form {
+  align-items: stretch;
+  align-content: stretch;
+  background-color: var(--wrapper-bg-color);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  max-width: 700px;
+  padding: 8px 4px 26px;
+  -webkit-box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.25);
+}
+
+.login-form > * {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.login-form legend {
+  background-color: var(--bg-color);
+  border-radius: 13px;
+  color: var(--tertiary-text-color);
+  font-size: 1em;
+  margin: 0 0 0 26px;
+  padding: 4px 12px;
+}
+
+.login-form label {
+  align-items: strech;
+  background-color: var(--element-bg-color);
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1em;
+  margin: 5px 0px;
+  padding: 12px;
+}
+
+.login-form input {
+  border: 0;
+  border-radius: 6px;
+  font-size: 0.9em;
+  padding: 8px;
+}
+
+.login-form button, .login-form a {
+  align-self: center;
+  width: 80%;
+}
+
+.login-form a button {
+  margin: 0;
+  width: 100%;
+}
+
+.login-form > button, .login-form a button {
+  margin-top: 15px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@media (min-width: 800px) {
+  .login-wrapper {
+    flex-flow: row-reverse nowrap;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+  }
+
+  .logo-wrapper {
+    flex-flow: column nowrap;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .login-wrapper form {
+    background-color: var(--element-bg-color);
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 0 40px;
+  }
+
+  .header h1 {
+    align-self: center;
+  }
+
+  .logo-wrapper h1 {
+    font-size: 5vw;
+  }
+
+  .login-form label {
+    margin: 5px 20px;
+    padding: 12px 20px 16px;
+  }
+}

@@ -1,0 +1,47 @@
+.profile-form {
+  padding: 6px 0 12px 0;
+}
+
+.profile-form fieldset {
+  background-color: var(--wrapper-bg-color);
+  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.25);
+  border: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  padding: 4px 3px 10px;
+}
+
+.profile-form fieldset legend {
+  background-color: var(--wrapper-bg-color);
+  border-radius: 8px;
+  margin: 0 0 2px 8px;
+  padding: 0 8px 2px;
+}
+
+.profile-form fieldset label {
+  margin-bottom: 4px;
+}
+
+.profile-form fieldset input {
+  background-color: var(--bright-element-bg-color);
+  border: 0;
+  border-radius: 4px;
+  color: var(--primary-text-color);
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 0 0 7px;
+  max-width: 400px;
+  padding: 4px 9px;
+  width: 70%;
+}
+
+.profile-form fieldset input:read-only, form fieldset input:disabled {
+  color: var(--secondary-att);
+}
+
+.profile-form fieldset button {
+  align-self: center;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "amais-challenge-fullstack",
+  "version": "1.0.0",
+  "description": "Aplicação Web para controlar Alunos e Professores em suas Turmas, referentes às séries do Ensino Fundamental, em uma Escola Pública. Projeto para processo seletivo da Plataforma A+ Educação.",
+  "scripts": {
+    "install-back": "npm --prefix back-end/ install",
+    "start-back": "npm --prefix back-end/ run start&",
+    "install-front": "npm --prefix front-end/ install",
+    "start-front": "npm --prefix front-end/ run start&",
+    "prestart": "",
+    "start": "npm run install-back && npm run install-front && npm run start-back && npm run start-front",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyranowebdev/fullstack-challenge-cyranowebdev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyranowebdev/fullstack-challenge-cyranowebdev/issues"
+  },
+  "homepage": "https://github.com/cyranowebdev/fullstack-challenge-cyranowebdev#readme",
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "mongodb": "3.6.2"
+  },
+  "devDependencies": {}
+}

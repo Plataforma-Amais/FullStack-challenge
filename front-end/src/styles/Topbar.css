@@ -1,0 +1,134 @@
+.topbar {
+  align-self: center;
+  box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.25);
+  background-color: var(--element-bg-color);
+  margin-bottom: 10px;
+  padding: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  -webkit-box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 10px 17px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.title {
+  --letter-space: 4px;
+  font-family: 'Kontanter Bold', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: var(--letter-space);
+  margin: 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0 6px;
+  line-height: 100%;
+  text-align: right;
+}
+
+.hamburguer {
+  --padding: 8px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: var(--padding) calc(var(--padding) + 4px);
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.hamburguer .icon {
+  font-size: 1.5em;
+  padding: 2px 3px;
+}
+
+.side-menu-container, .admin-side-bar-container {
+  background-color: var(--wrapper-bg-color);
+  box-shadow: 0px 10px 17px -6px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 15px 5px 10px;
+  position: absolute;
+  top: 44px;
+  width: 95vw;
+  -webkit-box-shadow: 0px 10px 17px -6px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 10px 17px -6px rgba(0, 0, 0, 0.45);
+}
+
+.side-menu-container a, .admin-side-bar-container a {
+  background-color: var(--element-bg-color);
+  border-radius: 0 8px;
+  box-shadow: 2px 4px 11px 3px rgba(0, 0, 0, 0.15);
+  color: var(--tertiary-text-color);
+  margin: 3px;
+  font-size: 1.2em;
+  margin: 2px 40px 8px 4px;
+  padding: 2px 0 4px 12px;
+  text-decoration: none;
+  -webkit-box-shadow: 2px 4px 11px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 2px 4px 11px 3px rgba(0, 0, 0, 0.15);
+}
+
+.side-menu-container a:hover, .admin-side-bar-container a:hover {
+  background-color: var(--bright-element-bg-color);
+  color: var(--primary-text-color);
+}
+
+.side-menu-container.hide {
+  display: none;
+}
+
+.sidebar-logout-btn {
+  box-shadow: 0 0 11px 3px rgba(0, 0, 0, 0.15);
+  color: var(--bg-color);
+  margin-top: 10px;
+  -webkit-box-shadow: 0 0 11px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 11px 3px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-logout-btn:hover {
+  background-color: var(--secondary-att);
+}
+
+.sidebar-logout-btn:active {
+  background-color: var(--primary-att);
+}
+
+@media (min-width: 800px) {
+  .header {
+    padding: 20px 10px;
+  }
+
+  .side-menu-container, .admin-side-bar-container {
+    flex-flow: row nowrap;
+    align-items: center;
+    align-content: space-between;
+    position: static;
+    width: auto;
+  }
+
+  .side-menu-container a, .admin-side-bar-container a {
+    align-self: center;
+    margin: 3px;
+    margin: 0;
+    padding: 2px 40px;
+  }
+
+  .sidebar-logout-btn {
+    margin-top: 0;
+  }
+}
