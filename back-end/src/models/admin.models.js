@@ -24,8 +24,17 @@ const removeUser = async (userId) => {
   return result;
 };
 
+const getAllSchools = async () => {
+  const results = await connection()
+    .then((db) => db.collection('schools').find().toArray())
+    .catch((err) => err);
+
+  return results;
+};
+
 module.exports = {
   getAllUsers,
   getUsersByProfile,
   removeUser,
+  getAllSchools,
 };
