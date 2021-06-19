@@ -1,41 +1,30 @@
+const ObjectId = require('mongodb').ObjectID;
 const connection = require('./connection');
 
-const saveAdminMessage = async (message, userId) => {
-  await connection()
-    .then((db) => db.collection('messages').updateOne(
-      { userId },
-      { $push: { messages: message } },
-      { upsert: true },
-    ))
+const getAllUsers = async () => {
+  const results = await connection()
+    .then((db) => db.collection('users').find().toArray())
     .catch((err) => err);
 
-  return true;
+  return results;
 };
 
-const getChats = async () => {
-    const result = await connection()
-      .then((db) => db.collection('messages').find().toArray());
+const getUsersByProfile = async (profile) => {
+  const results = await connection()
+    .then((db) => db.collection('users').find({ profile }).toArray());
 
-    return result;
+  return results;
 };
 
-const getMessagesByUserId = async (userId) => {
+const removeUserId = async (userId) => {
   const result = await connection()
-    .then((db) => db.collection('messages').findOne({ userId }));
+  .then((db) => db.collection('users').deleteOne({ _id: ObjectId(userId) }));
 
   return result;
 };
 
-const removeMessagesByUserId = async (userId) => {
-  const result = await connection()
-  .then((db) => db.collection('messages').deleteOne({ userId }));
-
-return result;
-};
-
 module.exports = {
-  getMessagesByUserId,
-  getChats,
-  saveAdminMessage,
-  removeMessagesByUserId,
+  getAllUsers,
+  getUsersByProfile,
+  removeUserId,
 };

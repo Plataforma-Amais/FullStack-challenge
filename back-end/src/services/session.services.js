@@ -4,12 +4,11 @@ const { authLogin } = require('../schemas');
 
 const login = async ({ email, password }) => {
   const user = (email)
-    ? await users.findOne({ where: { email } })
+    ? await users.findUserByEmail(email)
     : null;
   authLogin(email, password, user);
-  const { dataValues } = user;
-  const token = generateToken(dataValues.id, dataValues.role);
-  return { name: dataValues.name, email: dataValues.email, role: dataValues.role, token };
+  const token = generateToken(user.id);
+  return { name: user.name, email: user.email, profile: user.profile, token };
 };
 
 module.exports = {

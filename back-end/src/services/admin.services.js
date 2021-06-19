@@ -1,12 +1,10 @@
-const { users } = require('../models/');
-const { authUpdateSale, authDetailsSale } = require('../schemas');
+const { admin } = require('../models');
 
-const errors = {
-  C_ERR_ACC_DND: 'C_ERR_ACC_DND',
-  C_ERR_SALE_NOT_FOUND: 'C_ERR_SALE_NOT_FOUND',
-};
+const getUsers = async () => admin.getAllUsers();
 
-
+const getUsersByProfile = async (profile) => admin.getUsersByProfile(profile);
 
 module.exports = {
+  getUsers,
+  getUsersByProfile,
 };

@@ -1,4 +1,4 @@
-// accented chars regex -> https://davidwalsh.name/regex-accented-letters
+// accented chars regex -> https://regexr.com
 const userNameRegex = /[\p{L}\s]{12,}/iu;
 const emailRegex = /\S+@\S+\.\S+/;
 const dateRegex = /^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;

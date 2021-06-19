@@ -1,3 +1,4 @@
+const ObjectId = require('mongodb').ObjectID;
 const connection = require('./connection');
 
 const create = async (newUser) => {
@@ -8,15 +9,27 @@ const create = async (newUser) => {
   return result.insertedId;
 };
 
-const findUserByEmail = async (email) => {
+const findUserByEmail = async (query) => {
   const result = await connection()
-    .then((db) => db.collection('users').findOne({ email }))
-    .catch((err) => console.log('err: ', err));
+    .then((db) => db.collection('users').findOne({ email: query }))
+    .catch((err) => err);
+  if (result) return result;
+  return null;
+};
 
-  return result;
+const getUserProfile = async (userId) => {
+  const result = await connection()
+    .then((db) => db.collection('users').findOne({ _id: ObjectId(userId) }))
+    .catch((err) => err);
+  if (result) {
+    const { profile } = result;
+    return profile;
+  }
+  return null;
 };
 
 module.exports = {
   create,
   findUserByEmail,
+  getUserProfile,
 };

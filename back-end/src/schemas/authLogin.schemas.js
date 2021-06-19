@@ -1,4 +1,4 @@
-const { validateEmailField } = require('./utils');
+const { validateEmailFormat } = require('./utils');
 const { isBlank, isNotEqual } = require('./helpers');
 
 const error = {
@@ -8,7 +8,7 @@ const error = {
 };
 
 const validateLogin = (email, pass, user) => {
-  validateEmailField(email);
+  validateEmailFormat(email);
   if (isBlank(pass)) throw new Error(error.passwordFieldRequired);
   if (isBlank(user)) throw new Error(error.userNotFound);
 };
