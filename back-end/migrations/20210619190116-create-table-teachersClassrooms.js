@@ -13,11 +13,11 @@ module.exports = {
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
       },
-      classId: {
+      classroomId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'classroom',
+          model: 'classrooms',
           key: 'id',
         },
         onUpdate: "CASCADE",
