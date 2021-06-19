@@ -69,6 +69,11 @@ module.exports = {
     customCode: 'C_ERR_NOT_FOUND',
     customMessage: 'Not found.',
   },
+  C_ERR_SCHOOL_NOT_FOUND: {
+    statusCode: 404,
+    customCode: 'C_ERR_SCHOOL_NOT_FOUND',
+    customMessage: 'Error: school not found.',
+  },
   C_ERR_SCHOOL_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_SCHOOL_MISSING',

@@ -13,7 +13,10 @@ const findUserByEmail = async (query) => {
   const result = await connection()
     .then((db) => db.collection('users').findOne({ email: query }))
     .catch((err) => err);
-  if (result) return result;
+  if (result) {
+    const { _id: id, ...user } = result;
+    return { ...user, id };
+  }
   return null;
 };
 
