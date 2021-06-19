@@ -10,13 +10,14 @@ const getAllUsers = async () => {
 };
 
 const getUsersByProfile = async (profile) => {
+  console.log(profile);
   const results = await connection()
     .then((db) => db.collection('users').find({ profile }).toArray());
 
   return results;
 };
 
-const removeUserId = async (userId) => {
+const removeUser = async (userId) => {
   const result = await connection()
   .then((db) => db.collection('users').deleteOne({ _id: ObjectId(userId) }));
 
@@ -26,5 +27,5 @@ const removeUserId = async (userId) => {
 module.exports = {
   getAllUsers,
   getUsersByProfile,
-  removeUserId,
+  removeUser,
 };

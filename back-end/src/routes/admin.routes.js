@@ -13,8 +13,8 @@ const admin = express.Router();
 //   middlewares.authToken, middlewares.authAdmin, controllers.removeSchool);
 // admin.get('/schools/',
 //   middlewares.authToken, middlewares.authAdmin, controllers.getSchools);
-// admin.get('/users/:profile',
-//   middlewares.authToken, middlewares.authAdmin, controllers.getUsersByProfile);
+admin.get('/users/:profile',
+  middlewares.authToken, middlewares.authAdmin, controllers.getUsersByProfile);
 admin.get('/users/',
   middlewares.authToken, middlewares.authAdmin, controllers.getUsers);
 admin.delete('/user/',
