@@ -1,6 +1,10 @@
 const { admin, users, schools } = require('../models');
 const { authNewSchool, authInstanceId } = require('../schemas');
 
+const error = {
+  schoolNotFound: 'C_ERR_SCHOOL_NOT_FOUND',
+};
+
 const getUsers = async () => users.getAll();
 
 const getUsersByProfile = async (profile) => users.getByProfile(profile);
@@ -31,7 +35,12 @@ const updateSchool = async (school, schoolId) => {
   authInstanceId(schoolId);
   const directorId = await getDirectorId(school);
   const updateData = { ...school, director: directorId };
-  return schools.update(updateData, schoolId);
+  const result = await schools.update(updateData, schoolId);
+  if (result == null) throw new Error(error.schoolNotFound);
+  if (result === 0) {
+    return { success: false, message: 'Data is the same. Nothing changed.' };
+  }
+  return { success: true, result };
 };
 
 const removeSchool = async (schoolId) => {

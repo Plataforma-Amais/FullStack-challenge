@@ -10,6 +10,13 @@ const getAll = async () => {
   return results;
 };
 
+const getById = async (schoolId) => {
+  const result = await connection()
+    .then((db) => db.collection('schools').findOne({ _id: ObjectId(schoolId) }));
+
+  return result;
+};
+
 const getByDirectorId = async (userId) => {
   const result = await connection()
     .then((db) => db.collection('schools').aggregate([
@@ -60,15 +67,13 @@ const create = async (newSchool) => {
 
 const update = async (school, schoolId) => {
   const status = !!(school.director);
-  const { matchedCount, nModified } = await connection()
+  const { matchedCount, result: { nModified } } = await connection()
     .then((db) => db.collection('schools').updateOne(
       { _id: ObjectId(schoolId) },
       { $set: { ...school, status } },
     ));
-  if (matchedCount === 0) return 'School not found.';
-  return (nModified > 0)
-    ? school
-    : 'No difference in data. Nothing changed.';
+  if (matchedCount === 0) return null;
+  return (nModified > 0) ? school : 0;
 };
 
 const remove = async (schoolId) => {
@@ -82,6 +87,7 @@ const remove = async (schoolId) => {
 
 module.exports = {
   getAll,
+  getById,
   getByDirectorId,
   create,
   update,

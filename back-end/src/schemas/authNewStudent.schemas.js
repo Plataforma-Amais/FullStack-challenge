@@ -8,7 +8,7 @@ const error = {
   invalidStudent: 'C_ERR_STUDENT_INVALID',
 };
 
-const authNewClass = (newStudent) => {
+const authNewStudent = (newStudent) => {
   switch (true) {
     case isBlank(newStudent): throw new Error(error.missingStudent);
     case isNotString(newStudent): throw new Error(error.invalidStudent);
@@ -16,4 +16,4 @@ const authNewClass = (newStudent) => {
   }
 };
 
-module.exports = authNewClass;
+module.exports = authNewStudent;
