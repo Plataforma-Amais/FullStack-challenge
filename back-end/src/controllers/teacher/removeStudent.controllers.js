@@ -1,14 +1,12 @@
 const { StatusCodes } = require('http-status-codes');
-const { classes } = require('../../services');
+const { teachers } = require('../../services');
 const { teachersError } = require('./error');
 
 module.exports = async (req, res, next) => {
   try {
-    const { body: { classId }, userId } = req;
-    const result = await classes.remove(classId, userId);
-    const message = (result)
-      ? 'Done. Class removed.' : 'Class not found. Nothing removed.';
-    return res.status(StatusCodes.OK).json({ message, success: result });
+    const { body: { name, classId }, userId } = req;
+    const result = await teachers.removeStudent({ name, classId }, userId);
+    return res.status(StatusCodes.OK).json(result);
   } catch (err) {
     return next({ ...teachersError, err });
   }

@@ -12,7 +12,7 @@ const getClasses = async (userId) => {
   return teachers.getClasses(userId);
 };
 
-const addStudentInClass = async (payload, userId) => {
+const addStudent = async (payload, userId) => {
   authInstanceId([userId, payload.classId]);
   authNewStudent(payload);
   const currClass = await classes.getById(payload.classId);
@@ -30,7 +30,23 @@ const addStudentInClass = async (payload, userId) => {
   return { success: true, result };
 };
 
+const removeStudent = async (payload, userId) => {
+  authInstanceId([userId, payload.classId]);
+  const currClass = await classes.getById(payload.classId);
+  if (!currClass.teachers.includes(userId)) {
+    throw new Error(error.notTeacherOfClass);
+  }
+  const result = await students.remove(payload.classId, payload.name);
+
+  if (result == null) throw new Error(error.classNotFound);
+  if (result === 0) {
+    return { success: false, message: 'Data is the same. Nothing changed.' };
+  }
+  return { success: true, result: `Student ${result} removed from class.` };
+};
+
 module.exports = {
   getClasses,
-  addStudentInClass,
+  addStudent,
+  removeStudent,
 };

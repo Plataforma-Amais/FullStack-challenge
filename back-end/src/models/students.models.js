@@ -23,15 +23,15 @@ const create = async (payload) => {
 };
 
 const remove = async (classId, name) => {
-  const result = await connection()
+  const { matchedCount, result: { nModified } } = await connection()
     .then((db) => db.collection('classes').updateOne(
       { _id: ObjectId(classId) },
       { $pull:
         { students: { name } },
       },
     ));
-
-  return result.deletedCount > 0;
+  if (matchedCount === 0) return null;
+  return (nModified > 0) ? name : 0;
 };
 
 module.exports = {
