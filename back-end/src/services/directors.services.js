@@ -2,10 +2,15 @@
 /* eslint-disable no-underscore-dangle */
 const ObjectId = require('mongodb').ObjectID;
 const { authInstanceId, authNewClass } = require('../schemas');
-const { schools, classes } = require('../models');
+const { schools, classes, users } = require('../models');
 
 const error = {
   schoolNotFound: 'C_ERR_SCHOOL_NOT_FOUND',
+};
+
+const searchTeacher = (field, value) => {
+  if (!field || !value) return 'Search term empty. Nothing searched.';
+  return users.searchByProfile(field, value, 'teacher');
 };
 
 const getSchoolByDirectorId = async (userId) => {
@@ -55,6 +60,7 @@ const createClass = async (newClass, userId) => {
 };
 
 module.exports = {
+  searchTeacher,
   getSchoolByDirectorId,
   getClasses,
   getClassById,

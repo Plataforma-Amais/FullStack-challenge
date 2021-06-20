@@ -4,7 +4,8 @@ const middlewares = require('../middlewares');
 
 const teachers = express.Router();
 
-teachers.get('/', middlewares.authToken, controllers.getTeachers);
+teachers.get('/',
+  middlewares.authToken, middlewares.authDirector, controllers.getTeachers);
 // teachers.post('/students',
 //   middlewares.authToken, middlewares.authDirector, controllers.createStudent);
 // teachers.delete('/students',

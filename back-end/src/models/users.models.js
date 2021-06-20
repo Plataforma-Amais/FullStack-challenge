@@ -24,6 +24,19 @@ const getUserId = async (email) => {
   return null;
 };
 
+const searchByProfile = async (field, query, profile) => {
+  const result = await connection()
+    .then((db) => db.collection('users').find(
+      {
+        $and: [
+          { [field]: { $regex: query, $options: 'i' } },
+          { profile },
+        ],
+      },
+    ).toArray());
+  return result;
+};
+
 const create = async (newUser) => {
   const result = await connection()
     .then((db) => db.collection('users').insertOne(newUser)
@@ -65,6 +78,7 @@ module.exports = {
   getAll,
   getByProfile,
   getUserId,
+  searchByProfile,
   create,
   findUserByEmail,
   getUserProfile,

@@ -6,6 +6,8 @@ const directors = express.Router();
 
 directors.get('/',
   middlewares.authToken, middlewares.authDirector, controllers.getSchool);
+  directors.get('/teacher',
+  middlewares.authToken, middlewares.authDirector, controllers.searchTeacher);
 
 directors.get('/class',
   middlewares.authToken, middlewares.authDirector, controllers.getClass);
