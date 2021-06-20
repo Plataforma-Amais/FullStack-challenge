@@ -9,5 +9,9 @@ schools.get('/',
 
 schools.get('/classes',
   middlewares.authToken, middlewares.authDirector, controllers.getClasses);
+schools.post('/classes',
+  middlewares.authToken, middlewares.authDirector, controllers.createClass);
+schools.delete('/classes',
+  middlewares.authToken, middlewares.authDirector, controllers.removeClass);
 
 module.exports = schools;

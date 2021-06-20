@@ -1,9 +1,12 @@
+const { ObjectID } = require('mongodb');
+
 // accented chars regex -> https://regexr.com
 const userNameRegex = /[\p{L}\s]{12,}/iu;
 const emailRegex = /\S+@\S+\.\S+/;
 const dateRegex = /^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/;
 
 const isBlank = (value) => (!value);
+const isNotValidId = (value) => !ObjectID.isValid(value);
 const isLessThan = (value, min) => (value < min);
 const isGreaterThan = (value, min) => (value > min);
 const isNameInvalid = (name) => !userNameRegex.test(name);
@@ -12,6 +15,22 @@ const isDateValid = (date) => !dateRegex.test(date.datedAt);
 const isNotEqual = (value1, value2) => value1 !== value2;
 const isNotBool = (value) => (typeof value !== 'boolean');
 const isNotString = (value) => (typeof value !== 'string');
+const isNotYear = (value) => {
+  const year = parseInt(value, 10);
+  const currentYear = new Date().getFullYear();
+  if (Number.isNaN(year) || year > currentYear || year < 1900) {
+    return true;
+  }
+  return false;
+};
+const isNotGrade = (value) => {
+  const grade = parseInt(value, 10);
+  console.log('grade', grade, typeof grade);
+  if (Number.isNaN(grade) || grade < 1 || grade > 9) {
+    return true;
+  }
+  return false;
+};
 const notInclude = (array, value) => !array.includes(value);
 
 module.exports = {
@@ -25,4 +44,7 @@ module.exports = {
   isNotEqual,
   isNotBool,
   isNotString,
+  isNotYear,
+  isNotGrade,
+  isNotValidId,
 };

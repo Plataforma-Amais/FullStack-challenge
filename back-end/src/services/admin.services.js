@@ -1,5 +1,5 @@
 const { admin } = require('../models');
-const { authNewSchool, authSchoolId } = require('../schemas');
+const { authNewSchool, authInstanceId } = require('../schemas');
 
 const getUsers = async () => admin.getAllUsers();
 
@@ -29,7 +29,7 @@ const updateSchool = async (school, schoolId) => {
 };
 
 const removeSchool = async (schoolId) => {
-  authSchoolId(schoolId);
+  authInstanceId(schoolId);
   return admin.removeSchool(schoolId);
 };
 

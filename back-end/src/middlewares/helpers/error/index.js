@@ -4,6 +4,16 @@ module.exports = {
     customCode: 'C_ERR_USER_NOT_FOUND',
     customMessage: 'Login failed. User not found.',
   },
+  C_ERR_ID_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ID_MISSING',
+    customMessage: 'Error: Id missing.',
+  },
+  C_ERR_ID_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_SCHOOL_ID_INVALID',
+    customMessage: 'Error: Id is invalid.',
+  },
   C_ERR_INVALID_CRED: {
     statusCode: 401,
     customCode: 'C_ERR_INVALID_CRED',
@@ -67,7 +77,7 @@ module.exports = {
   C_ERR_NOT_FOUND: {
     statusCode: 404,
     customCode: 'C_ERR_NOT_FOUND',
-    customMessage: 'Not found.',
+    customMessage: 'Route not found.',
   },
   C_ERR_SCHOOL_NOT_FOUND: {
     statusCode: 404,
@@ -114,14 +124,49 @@ module.exports = {
     customCode: 'C_ERR_SCHOOL_ADDRESS_INVALID',
     customMessage: 'Error: address of new school is invalid (must be string).',
   },
-  C_ERR_SCHOOL_ID_MISSING: {
+  C_ERR_CLASS_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_ID_MISSING',
-    customMessage: 'Error: school Id missing.',
+    customCode: 'C_ERR_CLASS_MISSING',
+    customMessage: 'Error: class is missing.',
   },
-  C_ERR_SCHOOL_ID_INVALID: {
+  C_ERR_CLASS_SCHOOL_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_ID_INVALID',
-    customMessage: 'Error: school Id is invalid.',
+    customCode: 'C_ERR_CLASS_SCHOOL_MISSING',
+    customMessage: 'Error: schoolId of class is missing.',
+  },
+  C_ERR_CLASS_SCHOOL_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_SCHOOL__INVALID',
+    customMessage: 'Error: schoolId in Class is invalid.',
+  },
+  C_ERR_CLASS_NAME_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_NAME_MISSING',
+    customMessage: 'Error: name of class is missing.',
+  },
+  C_ERR_CLASS_NAME_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_NAME_INVALID',
+    customMessage: 'Error: name of Class is invalid.',
+  },
+  C_ERR_CLASS_YEAR_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_YEAR_MISSING',
+    customMessage: 'Error: year of class is missing.',
+  },
+  C_ERR_CLASS_YEAR_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_YEAR_INVALID',
+    customMessage: 'Error: year of Class is invalid.',
+  },
+  C_ERR_CLASS_GRADE_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_GRADE_MISSING',
+    customMessage: 'Error: grade of class is missing.',
+  },
+  C_ERR_CLASS_GRADE_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_CLASS_GRADE_INVALID',
+    customMessage: 'Error: grade of Class is invalid.',
   },
 };

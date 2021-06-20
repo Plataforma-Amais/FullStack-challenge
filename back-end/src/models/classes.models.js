@@ -1,4 +1,5 @@
 /* eslint-disable max-lines-per-function */
+const ObjectId = require('mongodb').ObjectID;
 const connection = require('./connection');
 
 const getBySchoolId = async (schoolId) => {
@@ -8,14 +9,22 @@ const getBySchoolId = async (schoolId) => {
   return result;
 };
 
-const createClass = async (newClass) => {
+const create = async (newClass) => {
   const result = await connection()
     .then((db) => db.collection('classes').insertOne(newClass));
 
   return result;
 };
 
+const remove = async (classId) => {
+  const result = await connection()
+    .then((db) => db.collection('classes').deleteOne({ _id: ObjectId(classId) }));
+
+  return result.deletedCount > 0;
+};
+
 module.exports = {
   getBySchoolId,
-  createClass,
+  create,
+  remove,
 };

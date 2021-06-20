@@ -26,7 +26,7 @@ const getDirector = async (email) => {
 
 const removeUser = async (userId) => {
   const result = await connection()
-  .then((db) => db.collection('users').deleteOne({ _id: ObjectId(userId) }));
+    .then((db) => db.collection('users').deleteOne({ _id: ObjectId(userId) }));
 
   return result;
 };
@@ -69,7 +69,7 @@ const updateSchool = async (school, schoolId) => {
 
 const removeSchool = async (schoolId) => {
   const result = await connection()
-  .then((db) => db.collection('schools').deleteOne({ _id: ObjectId(schoolId) }));
+    .then((db) => db.collection('schools').deleteOne({ _id: ObjectId(schoolId) }));
 
   return result;
 };
