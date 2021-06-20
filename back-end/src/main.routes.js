@@ -5,14 +5,16 @@ const { log, handleError } = require('./middlewares');
 const {
   adminRouter,
   usersRouter,
-  schoolsRouter,
   sessionRouter,
+  directorsRouter,
+  teachersRouter,
   notFound,
 } = require('./routes');
 
 const routes = express.Router();
 
-routes.use('/school', schoolsRouter);
+routes.use('/school', directorsRouter);
+routes.use('/teachers', teachersRouter);
 routes.use('/login', sessionRouter);
 routes.use('/user', usersRouter);
 routes.use('/admin', adminRouter);
