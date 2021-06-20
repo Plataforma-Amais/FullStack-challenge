@@ -15,18 +15,16 @@ const isDateValid = (date) => !dateRegex.test(date.datedAt);
 const isNotEqual = (value1, value2) => value1 !== value2;
 const isNotBool = (value) => (typeof value !== 'boolean');
 const isNotString = (value) => (typeof value !== 'string');
+const isNotNumber = (value) => (typeof value !== 'number');
 const isNotYear = (value) => {
-  const year = parseInt(value, 10);
   const currentYear = new Date().getFullYear();
-  if (Number.isNaN(year) || year > currentYear || year < 1900) {
+  if (Number.isNaN(value) || value > currentYear || value < 1900) {
     return true;
   }
   return false;
 };
 const isNotGrade = (value) => {
-  const grade = parseInt(value, 10);
-  console.log('grade', grade, typeof grade);
-  if (Number.isNaN(grade) || grade < 1 || grade > 9) {
+  if (Number.isNaN(value) || value < 1 || value > 9) {
     return true;
   }
   return false;
@@ -44,6 +42,7 @@ module.exports = {
   isNotEqual,
   isNotBool,
   isNotString,
+  isNotNumber,
   isNotYear,
   isNotGrade,
   isNotValidId,

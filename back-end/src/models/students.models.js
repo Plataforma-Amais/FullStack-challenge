@@ -2,23 +2,19 @@
 const ObjectId = require('mongodb').ObjectID;
 const connection = require('./connection');
 
-const getBySchoolId = async (schoolId) => {
-  const result = await connection()
-    .then((db) => db.collection('classes').find({ schoolId }).toArray());
-
-  return result;
-};
-
-const getById = async (classId) => {
+const getByClassId = async (classId) => {
   const result = await connection()
     .then((db) => db.collection('classes').findOne({ _id: ObjectId(classId) }));
-
-  return result;
+  if (!result) return null;
+  return (result.students) ? result.students : [];
 };
 
-const create = async (newClass) => {
+const create = async (newStudent, classId) => {
   const result = await connection()
-    .then((db) => db.collection('classes').insertOne(newClass));
+    .then((db) => db.collection('classes').updateOne(
+      { _id: ObjectId(classId) },
+      { $push: { students: newStudent } },
+    ));
 
   return result;
 };
@@ -31,8 +27,7 @@ const remove = async (classId) => {
 };
 
 module.exports = {
-  getBySchoolId,
-  getById,
+  getByClassId,
   create,
   remove,
 };

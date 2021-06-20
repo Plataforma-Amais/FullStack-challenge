@@ -1,15 +1,34 @@
 /* eslint-disable max-lines-per-function */
 /* eslint-disable no-underscore-dangle */
 const ObjectId = require('mongodb').ObjectID;
-const { classes, schools } = require('../models');
 const { authInstanceId, authNewClass } = require('../schemas');
+const { schools, classes } = require('../models');
 
 const error = {
-  differentDirector: 'C_ERR_SCHOOL_NOT_DIRECTOR',
   schoolNotFound: 'C_ERR_SCHOOL_NOT_FOUND',
 };
 
-const create = async (newClass, userId) => {
+const getSchoolByDirectorId = async (userId) => {
+  authInstanceId(userId);
+  const school = await schools.getByDirectorId(userId);
+  if (!school) throw new Error(error.schoolNotFound);
+  return school;
+};
+
+const getClasses = async (schoolId) => {
+  authInstanceId(schoolId);
+  const schoolClasses = await classes.getBySchoolId(schoolId);
+  return schoolClasses;
+};
+
+const getClassById = async (classId) => {
+  authInstanceId(classId);
+  const result = await classes.getById(classId);
+  console.log(result);
+  return result;
+};
+
+const createClass = async (newClass, userId) => {
   const year = parseInt(newClass.year, 10);
   const grade = parseInt(newClass.grade, 10);
   const classData = { ...newClass, year, grade };
@@ -35,21 +54,9 @@ const create = async (newClass, userId) => {
   return null;
 };
 
-const remove = async (classId, userId) => {
-  authInstanceId(classId);
-  const school = await schools.getByDirectorId(userId);
-  if (!school) throw new Error(error.schoolNotFound);
-  if (school) {
-    const schoolId = ObjectId(school.director);
-    const user = ObjectId(userId);
-    if (!schoolId.equals(user)) throw new Error(error.differentDirector);
-  }
-  const result = await classes.remove(classId);
-
-  return result;
-};
-
 module.exports = {
-  create,
-  remove,
+  getSchoolByDirectorId,
+  getClasses,
+  getClassById,
+  createClass,
 };

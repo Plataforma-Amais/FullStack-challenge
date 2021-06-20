@@ -1,11 +1,11 @@
 const { StatusCodes } = require('http-status-codes');
-const { classes } = require('../../services');
+const { directors } = require('../../services');
 const { schoolsError } = require('./error');
 
 module.exports = async (req, res, next) => {
   try {
-    const { body: { classId }, userId } = req;
-    const result = await classes.getByClassId(classId, userId);
+    const { body: { classId } } = req;
+    const result = await directors.getClassById(classId);
     return res.status(StatusCodes.OK).json(result);
   } catch (err) {
     return next({ ...schoolsError, err });

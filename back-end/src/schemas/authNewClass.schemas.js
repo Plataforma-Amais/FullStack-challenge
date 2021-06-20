@@ -1,5 +1,10 @@
 /* eslint-disable complexity */
-const { isBlank, isNotString, isNotYear, isNotGrade } = require('./helpers');
+const {
+  isBlank,
+  isNotString,
+  isNotYear,
+  isNotGrade,
+  isNotNumber } = require('./helpers');
 
 const error = {
   missingClass: 'C_ERR_CLASS_MISSING',
@@ -22,9 +27,9 @@ const authNewClass = (newClass) => {
     case isBlank(newClass.grade): throw new Error(error.missingGrade);
     case isNotString(newClass.schoolId): throw new Error(error.invalidSchoolId);
     case isNotString(newClass.class): throw new Error(error.invalidName);
-    case isNotString(newClass.year): throw new Error(error.invalidYear);
+    case isNotNumber(newClass.year): throw new Error(error.invalidYear);
     case isNotYear(newClass.year): throw new Error(error.invalidYear);
-    case isNotString(newClass.grade): throw new Error(error.invalidGrade);
+    case isNotNumber(newClass.grade): throw new Error(error.invalidGrade);
     case isNotGrade(newClass.grade): throw new Error(error.invalidGrade);
     default: return null;
   }

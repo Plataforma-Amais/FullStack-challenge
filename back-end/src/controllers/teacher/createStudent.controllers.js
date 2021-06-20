@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const { classes } = require('../../services');
-const { schoolsError } = require('./error');
+const { schoolsError } = require('../director/error');
 
 module.exports = async (req, res, next) => {
   try {
