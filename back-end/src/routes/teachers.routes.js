@@ -10,6 +10,8 @@ teachers.get('/',
 teachers.post('/class',
   middlewares.authToken, middlewares.authTeacher, controllers.updateClass);
 
+teachers.get('/students',
+  middlewares.authToken, middlewares.authTeacher, controllers.getStudentComments);
 teachers.post('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.createStudent);
 teachers.put('/students',

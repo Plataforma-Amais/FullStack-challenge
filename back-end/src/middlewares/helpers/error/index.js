@@ -139,6 +139,11 @@ module.exports = {
     customCode: 'C_ERR_CLASS_NOT_FOUND',
     customMessage: 'Error: class not found.',
   },
+  C_ERR_CLASS_IS_EMPTY: {
+    statusCode: 404,
+    customCode: 'C_ERR_CLASS_IS_EMPTY',
+    customMessage: 'Error: class is empty.',
+  },
   C_ERR_CLASS_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_CLASS_MISSING',

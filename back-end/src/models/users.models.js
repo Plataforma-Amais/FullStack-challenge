@@ -10,6 +10,17 @@ const getAll = async () => {
   return results;
 };
 
+const getById = async (userId) => {
+  const result = await connection()
+    .then((db) => db.collection('users').findOne({ _id: ObjectId(userId) }));
+
+  const user = {
+    name: result.name,
+    email: result.email,
+  };
+  return user;
+};
+
 const getByProfile = async (profile) => {
   const results = await connection()
     .then((db) => db.collection('users').find({ profile }).toArray());
@@ -79,6 +90,7 @@ const removeOne = async (userId) => {
 
 module.exports = {
   getAll,
+  getById,
   getByProfile,
   getUserId,
   searchByProfile,
