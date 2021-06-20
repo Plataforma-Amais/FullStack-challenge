@@ -74,6 +74,11 @@ module.exports = {
     customCode: 'C_ERR_SCHOOL_NOT_FOUND',
     customMessage: 'Error: school not found.',
   },
+  C_ERR_SCHOOL_NOT_DIRECTOR: {
+    statusCode: 403,
+    customCode: 'C_ERR_SCHOOL_NOT_DIRECTOR',
+    customMessage: 'Forbidden: user is not director of school.',
+  },
   C_ERR_SCHOOL_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_SCHOOL_MISSING',

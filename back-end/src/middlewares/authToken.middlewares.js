@@ -19,7 +19,6 @@ module.exports = async (req, _res, next) => {
     const { sub } = verifyToken(token);
     req.userId = sub;
     const profile = await users.getUserProfile(sub);
-    console.log('midw: ', sub);
     if (!profile) throw new Error(error.invalidCredentials);
     req.userProfile = profile;
     return next();

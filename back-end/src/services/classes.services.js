@@ -1,5 +1,5 @@
 const ObjectId = require('mongodb').ObjectID;
-const { schools } = require('../models');
+const { schools, classes } = require('../models');
 const { authSchoolId } = require('../schemas');
 
 const error = {
@@ -7,16 +7,16 @@ const error = {
   notDirector: 'C_ERR_SCHOOL_NOT_DIRECTOR',
 };
 
-const getById = async (schoolId, userId) => {
+const getAll = async (schoolId, userId) => {
   authSchoolId(schoolId);
   const school = await schools.getById(schoolId);
   if (!school) throw new Error(error.schoolNotFound);
   const user = ObjectId(userId);
   const schoolDirectorId = ObjectId(school.director);
   if (!schoolDirectorId.equals(user)) throw new Error(error.notDirector);
-  return school;
+  return classes.getAll(schoolId);
 };
 
 module.exports = {
-  getById,
+  getAll,
 };

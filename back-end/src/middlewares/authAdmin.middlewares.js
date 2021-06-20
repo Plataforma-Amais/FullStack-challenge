@@ -1,12 +1,10 @@
 const errors = {
-  C_ERR_NO_TOKEN: 'C_ERR_NO_TOKEN',
-  C_ERR_ACC_DND: 'C_ERR_ACC_DND',
-
+  accessDenied: 'C_ERR_ACC_DND',
 };
 
 module.exports = (req, _res, next) => {
   try {
-    if (req.userProfile !== 'admin') throw new Error(errors.C_ERR_ACC_DND);
+    if (req.userProfile !== 'admin') throw new Error(errors.accessDenied);
     return next();
   } catch (err) {
     next({ err });
