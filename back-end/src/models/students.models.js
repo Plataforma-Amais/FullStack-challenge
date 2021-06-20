@@ -22,6 +22,18 @@ const create = async (payload) => {
   return (nModified > 0) ? newStudent : 0;
 };
 
+const addComment = async (payload, userId) => {
+  const newComment = { msg: payload.msg, teacher: userId };
+  const { matchedCount, result: { nModified } } = await connection()
+    .then((db) => db.collection('classes').updateOne(
+      { _id: ObjectId(payload.classId) },
+      { $push: { 'students.$[element].comments': newComment } },
+      { arrayFilters: [{ 'element.name': payload.name }] },
+    ));
+  if (matchedCount === 0) return null;
+  return (nModified > 0) ? newComment : 0;
+};
+
 const remove = async (classId, name) => {
   const { matchedCount, result: { nModified } } = await connection()
     .then((db) => db.collection('classes').updateOne(
@@ -37,5 +49,6 @@ const remove = async (classId, name) => {
 module.exports = {
   getByClassId,
   create,
+  addComment,
   remove,
 };

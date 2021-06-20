@@ -8,6 +8,8 @@ teachers.get('/',
   middlewares.authToken, middlewares.authTeacher, controllers.getClasses);
 teachers.post('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.createStudent);
+teachers.put('/students/',
+  middlewares.authToken, middlewares.authTeacher, controllers.updateStudent);
 teachers.delete('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.removeStudent);
 

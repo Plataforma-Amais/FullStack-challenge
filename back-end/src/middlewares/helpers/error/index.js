@@ -16,7 +16,7 @@ module.exports = {
   },
   C_ERR_ID_MISSING: {
     statusCode: 400,
-    customCode: 'C_ERR_SCHOOL_ID_MISSING',
+    customCode: 'C_ERR_ID_MISSING',
     customMessage: 'Error: Id missing.',
   },
   C_ERR_ID_INVALID: {
