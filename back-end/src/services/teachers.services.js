@@ -63,9 +63,25 @@ const addStudentComment = async (payload, userId) => {
   return { success: true, result };
 };
 
+const addClassComment = async (payload, userId) => {
+  authInstanceId([userId, payload.classId]);
+  authNewComment(payload.msg);
+  const currClass = await classes.getById(payload.classId);
+  if (!currClass.teachers.includes(userId)) {
+    throw new Error(error.notTeacherOfClass);
+  }
+  const result = await classes.addComment(payload, userId);
+  if (result == null) throw new Error(error.classNotFound);
+  if (result === 0) {
+    return { success: false, message: noChangeMsg };
+  }
+  return { success: true, result };
+};
+
 module.exports = {
   getClasses,
   addStudent,
   removeStudent,
   addStudentComment,
+  addClassComment,
 };

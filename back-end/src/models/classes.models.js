@@ -54,7 +54,19 @@ const remove = async (classId) => {
   return result.deletedCount > 0;
 };
 
+const addComment = async (payload, userId) => {
+  const newComment = { msg: payload.msg, teacher: userId };
+  const { matchedCount, result: { nModified } } = await connection()
+    .then((db) => db.collection('classes').updateOne(
+      { _id: ObjectId(payload.classId) },
+      { $push: { comments: newComment } },
+    ));
+  if (matchedCount === 0) return null;
+  return (nModified > 0) ? newComment : 0;
+};
+
 module.exports = {
+  addComment,
   getBySchoolId,
   getById,
   create,

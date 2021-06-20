@@ -6,9 +6,13 @@ const teachers = express.Router();
 
 teachers.get('/',
   middlewares.authToken, middlewares.authTeacher, controllers.getClasses);
+
+teachers.post('/class',
+  middlewares.authToken, middlewares.authTeacher, controllers.updateClass);
+
 teachers.post('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.createStudent);
-teachers.put('/students/',
+teachers.put('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.updateStudent);
 teachers.delete('/students',
   middlewares.authToken, middlewares.authTeacher, controllers.removeStudent);
