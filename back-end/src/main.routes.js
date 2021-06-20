@@ -14,7 +14,7 @@ const {
 const routes = express.Router();
 
 routes.use('/school', directorsRouter);
-routes.use('/teachers', teachersRouter);
+routes.use('/teacher', teachersRouter);
 routes.use('/login', sessionRouter);
 routes.use('/user', usersRouter);
 routes.use('/admin', adminRouter);

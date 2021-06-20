@@ -1,10 +1,11 @@
 const { StatusCodes } = require('http-status-codes');
-const { teachers } = require('../../services');
-const { schoolsError } = require('./error');
+const { classes } = require('../../services');
+const { schoolsError } = require('../director/error');
 
 module.exports = async (req, res, next) => {
   try {
-    const result = await teachers.getAll();
+    const { body: { payload }, userId } = req;
+    const result = await classes.create(payload, userId);
     return res.status(StatusCodes.OK).json(result);
   } catch (err) {
     return next({ ...schoolsError, err });

@@ -1,9 +1,9 @@
 /* eslint-disable max-lines-per-function */
 const connection = require('./connection');
 
-const getAll = async () => connection()
-  .then((db) => db.collection('users').find({ profile: 'teacher' }).toArray());
+const getClasses = async (userId) => connection()
+  .then((db) => db.collection('classes').find({ teachers: userId }).toArray());
 
 module.exports = {
-  getAll,
+  getClasses,
 };

@@ -1,7 +1,12 @@
 const { teachers } = require('../models');
+const { authInstanceId } = require('../schemas');
 
-const getAll = async () => teachers.getAll();
+const getClasses = async (userId) => {
+  console.log(userId);
+  authInstanceId(userId);
+  return teachers.getClasses(userId);
+};
 
 module.exports = {
-  getAll,
+  getClasses,
 };
