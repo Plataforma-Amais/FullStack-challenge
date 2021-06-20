@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const { classes } = require('../../services');
-const { schoolsError } = require('../director/error');
+const { teachersError } = require('./error');
 
 module.exports = async (req, res, next) => {
   try {
@@ -8,6 +8,6 @@ module.exports = async (req, res, next) => {
     const result = await classes.create(payload, userId);
     return res.status(StatusCodes.OK).json(result);
   } catch (err) {
-    return next({ ...schoolsError, err });
+    return next({ ...teachersError, err });
   }
 };

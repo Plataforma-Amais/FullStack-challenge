@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 const { classes } = require('../../services');
-const { schoolsError } = require('../director/error');
+const { teachersError } = require('./error');
 
 module.exports = async (req, res, next) => {
   try {
@@ -10,6 +10,6 @@ module.exports = async (req, res, next) => {
       ? 'Done. Class removed.' : 'Class not found. Nothing removed.';
     return res.status(StatusCodes.OK).json({ message, success: result });
   } catch (err) {
-    return next({ ...schoolsError, err });
+    return next({ ...teachersError, err });
   }
 };

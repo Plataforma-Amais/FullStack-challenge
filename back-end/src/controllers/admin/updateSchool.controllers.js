@@ -11,7 +11,6 @@ module.exports = async (req, res, next) => {
       updatedTo: result,
     });
   } catch (err) {
-    console.log(err);
     return next({ ...adminError, err });
   }
 };

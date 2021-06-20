@@ -199,4 +199,9 @@ module.exports = {
     customCode: 'C_ERR_STUDENT_INVALID',
     customMessage: 'Error: student name is invalid.',
   },
+  C_ERR_STUDENT_DUPLICATED: {
+    statusCode: 400,
+    customCode: 'C_ERR_STUDENT_DUPLICATED',
+    customMessage: 'Error: student name is already in class.',
+  },
 };

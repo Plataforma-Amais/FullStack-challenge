@@ -10,8 +10,8 @@ const error = {
 
 const authNewStudent = (newStudent) => {
   switch (true) {
-    case isBlank(newStudent): throw new Error(error.missingStudent);
-    case isNotString(newStudent): throw new Error(error.invalidStudent);
+    case isBlank(newStudent.name): throw new Error(error.missingStudent);
+    case isNotString(newStudent.name): throw new Error(error.invalidStudent);
     default: return null;
   }
 };

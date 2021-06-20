@@ -3,7 +3,6 @@ const users = require('./users.services');
 const admin = require('./admin.services');
 const directors = require('./directors.services');
 const teachers = require('./teachers.services');
-const students = require('./students.services');
 
 module.exports = {
   session,
@@ -11,5 +10,4 @@ module.exports = {
   admin,
   directors,
   teachers,
-  students,
 };

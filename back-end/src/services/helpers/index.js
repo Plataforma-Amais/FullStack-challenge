@@ -5,6 +5,7 @@ const error = {
   notDirector: 'C_ERR_SCHOOL_NOT_DIRECTOR',
   schoolNotFound: 'C_ERR_SCHOOL_NOT_FOUND',
   classNotFound: 'C_ERR_CLASS_NOT_FOUND',
+  studentNameTaken: 'C_ERR_STUDENT_DUPLICATED',
 };
 
 const checkDirectorOfSchool = async (userId, checkId) => {
@@ -21,7 +22,13 @@ const checkDirectorOwnsClass = async (userId, classId) => {
   checkDirectorOfSchool(userId, currClass.schoolId);
 };
 
+const checkDuplicateStudent = (array, name) => {
+  const nameDuplicated = array.some((student) => student.name === name);
+  if (nameDuplicated) throw new Error(error.studentNameTaken);
+};
+
 module.exports = {
   checkDirectorOfSchool,
   checkDirectorOwnsClass,
+  checkDuplicateStudent,
 };
