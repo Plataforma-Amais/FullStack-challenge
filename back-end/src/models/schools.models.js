@@ -27,7 +27,8 @@ const getByDirectorId = async (userId) => {
       },
     ]).toArray());
 
-  return result[0];
+  const { _id: id, ...data } = result[0];
+  return { id, ...data };
 };
 
 module.exports = {
