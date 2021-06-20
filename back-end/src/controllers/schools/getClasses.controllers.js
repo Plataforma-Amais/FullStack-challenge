@@ -4,8 +4,8 @@ const { schoolsError } = require('./error');
 
 module.exports = async (req, res, next) => {
   try {
-    const { body: { schoolId }, userId } = req;
-    const result = await classes.getAll(schoolId, userId);
+    const { body: { schoolId } } = req;
+    const result = await classes.getBySchoolId(schoolId);
     return res.status(StatusCodes.OK).json(result);
   } catch (err) {
     return next({ ...schoolsError, err });

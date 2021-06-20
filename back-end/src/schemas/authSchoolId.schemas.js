@@ -6,6 +6,7 @@ const error = {
 };
 
 const authSchoolId = (schoolId) => {
+  console.log('auth school Id', schoolId);
   switch (true) {
     case isBlank(schoolId): throw new Error(error.missingSchoolId);
     case isNotString(schoolId): throw new Error(error.invalidSchoolIds);
