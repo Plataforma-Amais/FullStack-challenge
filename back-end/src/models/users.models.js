@@ -24,17 +24,20 @@ const getUserId = async (email) => {
   return null;
 };
 
-const searchByProfile = async (field, query, profile) => {
-  const result = await connection()
+const searchByProfile = async (field, query, prof) => {
+  const results = await connection()
     .then((db) => db.collection('users').find(
       {
         $and: [
           { [field]: { $regex: query, $options: 'i' } },
-          { profile },
+          { profile: prof },
         ],
       },
     ).toArray());
-  return result;
+  const mapResults = results.map((result) => (
+    { name: result.name, email: result.email }
+  ));
+  return mapResults;
 };
 
 const create = async (newUser) => {
