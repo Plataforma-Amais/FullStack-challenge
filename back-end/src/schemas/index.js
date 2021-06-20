@@ -3,6 +3,7 @@ const authRegisterUser = require('./authRegisterUser.schemas');
 const authNewSchool = require('./authNewSchool.schemas');
 const authInstanceId = require('./authInstanceId.schemas');
 const authNewClass = require('./authNewClass.schemas');
+const authClassTeachers = require('./authClassTeachers.schemas');
 const utils = require('./utils');
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
   authNewSchool,
   authInstanceId,
   authNewClass,
+  authClassTeachers,
   utils,
 };

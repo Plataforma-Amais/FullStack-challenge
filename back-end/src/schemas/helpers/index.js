@@ -16,17 +16,15 @@ const isNotEqual = (value1, value2) => value1 !== value2;
 const isNotBool = (value) => (typeof value !== 'boolean');
 const isNotString = (value) => (typeof value !== 'string');
 const isNotNumber = (value) => (typeof value !== 'number');
+const isNotArray = (value) => !Array.isArray(value);
+const isNotArrayOfStrings = (array) => array.some((elem) => isNotString(elem));
 const isNotYear = (value) => {
   const currentYear = new Date().getFullYear();
-  if (Number.isNaN(value) || value > currentYear || value < 1900) {
-    return true;
-  }
+  if (Number.isNaN(value) || value > currentYear || value < 1900) return true;
   return false;
 };
 const isNotGrade = (value) => {
-  if (Number.isNaN(value) || value < 1 || value > 9) {
-    return true;
-  }
+  if (Number.isNaN(value) || value < 1 || value > 9) return true;
   return false;
 };
 const notInclude = (array, value) => !array.includes(value);
@@ -42,6 +40,8 @@ module.exports = {
   isNotEqual,
   isNotBool,
   isNotString,
+  isNotArray,
+  isNotArrayOfStrings,
   isNotNumber,
   isNotYear,
   isNotGrade,

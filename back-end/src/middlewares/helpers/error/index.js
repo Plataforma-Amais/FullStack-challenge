@@ -1,8 +1,18 @@
 module.exports = {
+  C_ERR_BAD_REQUEST: {
+    statusCode: 404,
+    customCode: 'C_ERR_BAD_REQUEST',
+    customMessage: 'Error: bad request.',
+  },
   C_ERR_USER_NOT_FOUND: {
     statusCode: 404,
     customCode: 'C_ERR_USER_NOT_FOUND',
     customMessage: 'Login failed. User not found.',
+  },
+  C_ERR_TEACHERS_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_TEACHERS_INVALID',
+    customMessage: 'Error: teachers data is invalid (at least one is not string).',
   },
   C_ERR_ID_MISSING: {
     statusCode: 400,
@@ -124,15 +134,25 @@ module.exports = {
     customCode: 'C_ERR_SCHOOL_ADDRESS_INVALID',
     customMessage: 'Error: address of new school is invalid (must be string).',
   },
+  C_ERR_CLASS_NOT_FOUND: {
+    statusCode: 404,
+    customCode: 'C_ERR_CLASS_NOT_FOUND',
+    customMessage: 'Error: class not found.',
+  },
   C_ERR_CLASS_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_CLASS_MISSING',
-    customMessage: 'Error: class is missing.',
+    customMessage: 'Error: class data is missing.',
   },
   C_ERR_CLASS_SCHOOL_MISSING: {
     statusCode: 400,
     customCode: 'C_ERR_CLASS_SCHOOL_MISSING',
     customMessage: 'Error: schoolId of class is missing.',
+  },
+  C_ERR_CLASS_NOT_TEACHER: {
+    statusCode: 403,
+    customCode: 'C_ERR_CLASS_NOT_TEACHER',
+    customMessage: 'Forbidden: user is not a teacher of this class.',
   },
   C_ERR_CLASS_SCHOOL_INVALID: {
     statusCode: 400,
@@ -178,15 +198,5 @@ module.exports = {
     statusCode: 400,
     customCode: 'C_ERR_STUDENT_INVALID',
     customMessage: 'Error: student name is invalid.',
-  },
-  C_ERR_CLASS_NOT_TEACHER: {
-    statusCode: 403,
-    customCode: 'C_ERR_CLASS_NOT_TEACHER',
-    customMessage: 'Forbidden: user is not a teacher of this class.',
-  },
-  C_ERR_CLASS_NOT_FOUND: {
-    statusCode: 404,
-    customCode: 'C_ERR_CLASS_NOT_FOUND',
-    customMessage: 'Error: class not found.',
   },
 };

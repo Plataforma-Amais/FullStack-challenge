@@ -19,8 +19,32 @@ const getById = async (classId) => {
 const create = async (newClass) => {
   const result = await connection()
     .then((db) => db.collection('classes').insertOne(newClass));
-
+  if (result) {
+      const classCreated = {
+        schoolId: result.ops[0].schoolId,
+        year: result.ops[0].year,
+        grade: result.ops[0].grade,
+        class: result.ops[0].class,
+        teachers: result.ops[0].teachers,
+      };
+      return classCreated;
+    }
   return result;
+};
+
+const update = async (classId, field, value) => {
+  const updateField = {};
+  updateField[field] = value;
+  const set = {
+    $set: updateField,
+  };
+  const { matchedCount, result: { nModified } } = await connection()
+    .then((db) => db.collection('classes').updateOne(
+      { _id: ObjectId(classId) },
+      set,
+    ));
+  if (matchedCount === 0) return null;
+  return (nModified) ? value : 0;
 };
 
 const remove = async (classId) => {
@@ -34,5 +58,6 @@ module.exports = {
   getBySchoolId,
   getById,
   create,
+  update,
   remove,
 };
