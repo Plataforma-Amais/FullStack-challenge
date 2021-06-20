@@ -61,7 +61,27 @@ const getClasses = async (userId) => {
       },
     ]).toArray());
 
-  return results;
+  const cleanedResults = [];
+  results.forEach((result) => {
+    const resultTeachers = result.teachers.map((teacher) => ({
+      name: teacher.name,
+      email: teacher.email,
+    }));
+    const resultComments = result.comments.map((comment) => ({
+      msg: comment.msg,
+      teacher: {
+        name: comment.teacher[0].name,
+        email: comment.teacher[0].email,
+      },
+    }));
+    cleanedResults.push({
+      ...result,
+      teachers: resultTeachers,
+      comments: resultComments,
+    });
+  });
+
+  return cleanedResults;
 };
 
 module.exports = {
