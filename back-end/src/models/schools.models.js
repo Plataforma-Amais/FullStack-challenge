@@ -2,10 +2,10 @@
 const ObjectId = require('mongodb').ObjectID;
 const connection = require('./connection');
 
-const getById = async (schoolId) => {
+const getByDirectorId = async (userId) => {
   const result = await connection()
     .then((db) => db.collection('schools').aggregate([
-      { $match: { _id: ObjectId(schoolId) } },
+      { $match: { director: ObjectId(userId) } },
       {
         $lookup: {
           from: 'classes',
@@ -31,5 +31,5 @@ const getById = async (schoolId) => {
 };
 
 module.exports = {
-  getById,
+  getByDirectorId,
 };
