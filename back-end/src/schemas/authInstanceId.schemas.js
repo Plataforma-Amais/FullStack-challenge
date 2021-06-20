@@ -5,12 +5,19 @@ const error = {
   invalidId: 'C_ERR_ID_INVALID',
 };
 
-const authInstanceId = (instanceId) => {
+const idValidator = (instanceId) => {
   switch (true) {
     case isBlank(instanceId): throw new Error(error.missingId);
     case isNotString(instanceId): throw new Error(error.invalidId);
     case isNotValidId(instanceId): throw new Error(error.invalidId);
     default: return null;
+  }
+};
+
+const authInstanceId = (instanceId) => {
+  if (typeof instanceId === 'string') return idValidator(instanceId);
+  if (instanceId.length() && instanceId.length() > 0) {
+    return instanceId.forEach((id) => idValidator(id));
   }
 };
 

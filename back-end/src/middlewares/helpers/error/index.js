@@ -169,4 +169,24 @@ module.exports = {
     customCode: 'C_ERR_CLASS_GRADE_INVALID',
     customMessage: 'Error: grade of Class is invalid.',
   },
+  C_ERR_STUDENT_MISSING: {
+    statusCode: 400,
+    customCode: 'C_ERR_STUDENT_MISSING',
+    customMessage: 'Error: student name is missing.',
+  },
+  C_ERR_STUDENT_INVALID: {
+    statusCode: 400,
+    customCode: 'C_ERR_STUDENT_INVALID',
+    customMessage: 'Error: student name is invalid.',
+  },
+  C_ERR_CLASS_NOT_TEACHER: {
+    statusCode: 403,
+    customCode: 'C_ERR_CLASS_NOT_TEACHER',
+    customMessage: 'Forbidden: user is not a teacher of this class.',
+  },
+  C_ERR_CLASS_NOT_FOUND: {
+    statusCode: 404,
+    customCode: 'C_ERR_CLASS_NOT_FOUND',
+    customMessage: 'Error: class not found.',
+  },
 };

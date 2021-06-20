@@ -21,6 +21,9 @@ const create = async (payload) => {
   return { name, email, token, profile };
 };
 
+const getByProfile = async (profile) => users.getByProfile(profile);
+
 module.exports = {
   create,
+  getByProfile,
 };

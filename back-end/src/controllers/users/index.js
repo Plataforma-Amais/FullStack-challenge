@@ -1,7 +1,7 @@
 const register = require('./register.controllers');
-const profile = require('./profile.controllers');
+const getUsersByProfile = require('./getUsersByProfile.controllers');
 
 module.exports = {
   register,
-  profile,
+  getUsersByProfile,
 };

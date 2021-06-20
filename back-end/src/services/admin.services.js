@@ -1,31 +1,37 @@
-const { admin } = require('../models');
+const { admin, users, schools } = require('../models');
 const { authNewSchool, authInstanceId } = require('../schemas');
 
-const getUsers = async () => admin.getAllUsers();
+const getUsers = async () => users.getAll();
 
-const getUsersByProfile = async (profile) => admin.getUsersByProfile(profile);
+const getUsersByProfile = async (profile) => users.getByProfile(profile);
 
-const removeUser = async (userId) => admin.removeUser(userId);
+const removeUser = async (userId) => {
+  authInstanceId(userId);
+  return users.removeOne(userId);
+};
 
-const getAllSchools = async () => admin.getAllSchools();
+const getAllSchools = async () => schools.getAll();
 
-const getDirector = async (school) => (
-  (school.director && typeof school.director === 'string')
-    ? admin.getDirector(school.director)
-    : null
-  );
+const getDirectorId = async (school) => {
+  if (school.director) {
+    authInstanceId(school.director);
+    return users.getUserId(school.director);
+  }
+  return null;
+};
 
 const createSchool = async (newSchool) => {
   authNewSchool(newSchool);
-  const director = await getDirector(newSchool);
-  return admin.createSchool({ ...newSchool, director });
+  const directorId = await getDirectorId(newSchool);
+  return schools.create({ ...newSchool, director: directorId });
 };
 
 const updateSchool = async (school, schoolId) => {
   authNewSchool(school);
-  const director = await getDirector(school);
-  const updateData = { ...school, director };
-  return admin.updateSchool(updateData, schoolId);
+  authInstanceId(schoolId);
+  const directorId = await getDirectorId(school);
+  const updateData = { ...school, director: directorId };
+  return schools.update(updateData, schoolId);
 };
 
 const removeSchool = async (schoolId) => {
