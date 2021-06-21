@@ -1,88 +1,55 @@
-#### <a name="top"></a> This repo is a clone of the group project that encloses front-end and back-end modules of the [Trybe](https://www.betrybe.com/) junior developer course.
-##### https://www.betrybe.com/ (in Portuguese)
+#### <a name="top"></a> Esse repo é um fork do desafio técnico para seleção de pessoa desenvolvedora fullstack na Plataforma A+.
+##### Veja a [Plataforma A+ no LinkedIn](https://www.linkedin.com/company/plataformaamais)  
   
-# TryBeer v2  ![!project status](https://img.shields.io/badge/status-development-f4a201?logo=visual-studio-code)
-![!socket io](https://img.shields.io/badge/socket.io-purple?logo=socket-dot-io)
+# Fullstack Challenge  ![!project status](https://img.shields.io/badge/status-development-f4a201?logo=visual-studio-code)
 ![!react](https://img.shields.io/badge/react-purple?logo=react)
 ![!react-router](https://img.shields.io/badge/react%2frouter-purple?logo=react-router)
-![!mysql](https://img.shields.io/badge/sequelize-black?logo=mysql)
-![!mysql](https://img.shields.io/badge/bcrypt-black?logo=enpass)
-![!mysql](https://img.shields.io/badge/jwtokens-black?logo=json-web-tokens)
-![!mysql](https://img.shields.io/badge/swagger-black?logo=swagger)
-![!mysql](https://img.shields.io/badge/express-black?logo=express)    
+![!mongo](https://img.shields.io/badge/mongoDB-black?logo=mongodb)
+![!jwt](https://img.shields.io/badge/jwtokens-black?logo=json-web-tokens)
+![!swagger](https://img.shields.io/badge/swagger-black?logo=swagger)
+![!express](https://img.shields.io/badge/express-black?logo=express)    
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-informational.svg?style=flat&logo=github)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-- [Requisites](#requisites)
-- [What did I do?](#my_work)
+- [Funcionalidades](#requisites)
 - [Instructions](#instructions)
 
 
 
-## Requisites <a name="requisites"></a>
+## Funcionalidades <a name="requisites"></a>
 
-**This is a second version:** this version follows up an initial project where students develop from scratch back-end API and front-end of a web app to sell... yes, you guessed it: beer. 🍺
-
-- *Back-end:* usage of [**mySQL**](https://www.mysql.com/) was required. The group decided to use a services layer in architecture.  
-We used [**Express**](https://expressjs.com/), [**JWT**](https://jwt.io/) for login management, [**BCrypt**](https://www.npmjs.com/package/bcrypt)) to encrypt passwords before storing in databse, and log and error handling middleware (by Phelipe Ohlsen, see contributors below).  
-**Documentation** made with [**Swagger**](https://swagger.io) available at `localhost:3001/documentation`.
-
-- *Front-end:* all elements built up using [**React**](https://reactjs.org/) and *React Context*, along with [*React Router*](https://reactrouter.com/).  
-A simple **web chat** for clients and admins implemented with [**Socket.io**](https://socket.io/).
-Visual design was not a requirement in itself but we agreed in using a colour scheme and a nice logo was created by *Daniel Jesus* (see contributors below).
+O desafio foi desenvolver uma aplicação WEB ou APP, para controlar Alunos e Professores em suas Turmas, referentes às séries do Ensino Fundamental, em uma Escola Pública.
+Baseado na descrição dos requisitos, decidi pelos seguintes perfis de usuário:
+- Admin: cria, edita e apaga escolas, além de vincular usuários diretores a UMA escola cadastrada
+- Diretores: criam, editam e apagam turmas na escola, podendo vincular pessoas usuárias professoras a cada turma
+- Docentes:
+  - podem ser vinculados a um número ilimitado de turmas em diversas escolas
+  - podem adicionar e remover estudantes nessas turmas
+  - podem adicionar e ver comentários nas turmas às quais estão vinculados
+  - podem adicionar e ver comentários a cada estudante em suas turmas
   
-**Set-up for current version:** the current version required a migration from mySQL to [**Sequelize**](https://sequelize.org/) to start with, so we had to create all Sequelize models and migrations before moving on to the actual requisites of the project.
+  
 
-**Requisites sum-up:**
+- *Back-end:* Optei pela arquitetura MSC e usei [**MongoDB**](https://docs.mongodb.com/) para persistência de dados.  
+Usei Node.js e [**Express**](https://expressjs.com/), [**JWT**](https://jwt.io/) para login e sessão, além de aproveitar um middleware simplificado de log e *error handling* feito por um colega de turma e usado em um de nossos projetos em grupo, nos permitindo melhorar o código.  
+**Documentação a ser feita** usando o [**Swagger**](https://swagger.io) (ficará disponível em `localhost:3001/documentation`).
 
-- Improve existing features to allow clients to see their orders' status and admin users to change that status among three possible values
-- Create a chat feature for clients to chat with the store:
-  - each client only chats with the 'store' and all chats are private
-  - admin users can see all chats and send messages to clients
-  - mongoDB is required to store chats
-- Back-end unit tests (we mainly used endpoint tests with Jest and Supertest to track coverage across architecture layers)
-
-## What did I do? <a name="my_work"></a>
-A bit of everything. Back-end implementation, refactoring and improvements, and a fair bulk of the back-end tests.  
-The front-end React development (and hooks otimization) and styling (*work in progress*, by the way - logo design by our team member _Daniel Jesus_).   
+- *Front-end:* Usei [**React**](https://reactjs.org/) com *React Context API* e [*React Router*](https://reactrouter.com/).  
+No design utilizei CSS puro e uma paleta de cores sugerida pelo [*NordTheme*](https://www.nordtheme.com/).
 
 ##### [back to top](#top)
 
-## Instructions <a name="instructions"></a>
+## Instruções <a name="instructions"></a>
 
-**Clone** the repo or **download** the zip.
+**Clone** o repo ou faça o **download** do zip (e depois extraindo em alguma pasta local, naturalmente).
 
-Go to the project folder and run `npm install`. (which means *Node.js* must be installed in your machine)
+Acessar a pasta do projeto via terminal e rodar `npm install`. (você precisará do *Node.js* instalado em sua máquina).
 
-To start the **back-end**: go to *back-end* project folder and run `npm start`.   
-> (**bonus**: check out the sexy documentation for the API at `localhost:3001/documentation`)
+Para iniciar a API **back-end**: entre na pasta *back-end* e execute `npm start`.   
+> (**bonus a fazer**: a documentação da API está em `localhost:3001/documentation`)
 
-To start the **front-end**: go to *front-end* project folder and run `npm start`.  
+Para iniciar o **front-end**: acesse a pasta *front-end* e execute `npm start`.  
 
-To run **back-end tests** (with coverage report): go to *back-end* project folder and run `npm run test-coverage`.  
+Para rodar **back-end tests (a implementar)** (com relatório de cobertura): acesse a pasta *back-end* e execute `npm run test-coverage`.  
 
-#### Important: mongoDB and mySQL services must be installed and active in your machine in order for DBs (thus the whole project) to work.
+#### Importante: mongoDB precisa estar instalado e com o serviço ativo em sua máquina para o back-end funcionar.
 
-##### [back to top](#top)
-
-## Thanks to the team! ✨ <a name="contributors"></a>
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/danieljs-dev"><img src="./public/github-daniel.png" width="100px;" alt=""/><br /><sub><b>danieljs-dev</b></sub></a></td>
-    <td align="center"><a href="https://github.com/PedimEduardo"><img src="./public/github-pedro.png" width="100px;" alt=""/><br /><sub><b>Pedro Eduardo </b></sub></a></td>
-    <td align="center"><a href="https://github.com/phelipe-ohlsen"><img src="./public/github-phelipe.png" width="100px;" alt=""/><br /><sub><b>Phelipe Ohlsen</b></sub></a></td>
-    <td align="center"><a href="https://github.com/cyranowebdev"><img src="./public/github-madsen.png" width="100px;" alt=""/><br /><sub><b>Cyrano</b></sub></a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 ##### [back to top](#top)
