@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const { errorMiddleware } = require('./middlewares');
-const { schoolsRouter } = require('./routes');
+const { schoolsRouter, classRouter } = require('./routes');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 app.use(schoolsRouter);
+app.use(classRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`));
