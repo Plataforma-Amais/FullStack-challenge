@@ -4,14 +4,14 @@ const validateBodyClass = (field, message) => {
   if (!field) throw new Error(message);
 };
 
-const validateCreateClass = async (name, professor, id_school) => {
+const validateCreateClass = async (name, id_professor, id_school) => {
   validateBodyClass(name, 'name not exist');
-  validateBodyClass(professor, 'professor not exist');
+  validateBodyClass(id_professor, 'id_professor not exist');
   validateBodyClass(id_school, 'id_school not exist');
 
-  const newClass = await classModel.createClass(name, professor, id_school);
+  const newClass = await classModel.createClass(name, id_professor, id_school);
   validateBodyClass(newClass.result.ok, 'Error to create newClass');
-  return { _id: newClass.insertedId, name, professor, id_school };
+  return { _id: newClass.insertedId, name, id_professor, id_school };
 };
 
 const validateFindClassById = async id => {

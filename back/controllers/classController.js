@@ -5,10 +5,10 @@ const { classService } = require('../services');
 
 const createClass = async (req, res, next) => {
   try {
-    const { name, professor, id_school } = req.body;
+    const { name, id_professor, id_school } = req.body;
     const newClass = await classService.validateCreateClass(
       name,
-      professor,
+      id_professor,
       id_school,
     );
     res.status(StatusCodes.CREATED).json(newClass);
