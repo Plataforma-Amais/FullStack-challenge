@@ -1,12 +1,13 @@
 const express = require('express');
 
-const {  } = require('../controllers');
+const { classController } = require('../controllers');
+const { createClass, findAllClasses, findClassById, deleteClassById } = classController;
 
 const ClassRouter = express.Router();
 
-ClassRouter.post('/turma', );
-ClassRouter.get('/turma/:id', );
-ClassRouter.get('/turmas', );
-ClassRouter.delete('/turma/:id', );
+ClassRouter.post('/turma', createClass);
+ClassRouter.get('/turma/:id', findClassById);
+ClassRouter.get('/turmas', findAllClasses);
+ClassRouter.delete('/turma/:id', deleteClassById);
 
 module.exports = ClassRouter;
