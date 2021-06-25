@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Context from './context';
-import { findAllSchools, deleteSchool } from '../services';
+import { findAllSchools, deleteSchool, createNewSchool } from '../services';
 
 const Provider = ({ children }) => {
   const [schools, setSchools] = useState([]);
+  const [classes, setClasses] = useState([]);
 
   const requestFindAllSchools = async () => {
     const result = await findAllSchools();
@@ -19,11 +20,22 @@ const Provider = ({ children }) => {
     }
   };
 
+  const requestCreateSchool = async (data) => {
+    const school = await createNewSchool(data);
+    if (school) {
+      const result = await findAllSchools();
+      setSchools(result);
+    }
+  }
+
   const globalState = {
     schools,
     setSchools,
     requestDeleteSchool,
     requestFindAllSchools,
+    requestCreateSchool,
+    classes,
+    setClasses,
   };
 
   return <Context.Provider value={globalState}>{children}</Context.Provider>;

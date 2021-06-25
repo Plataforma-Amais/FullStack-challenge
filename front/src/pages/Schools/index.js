@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Context from '../../context/context';
 import SchoolList from '../../components/schoolList';
+import SchoolForm from '../../components/schoolForm';
 
 const Schools = () => {
   const { schools, requestFindAllSchools } = useContext(Context);
@@ -21,6 +22,10 @@ const Schools = () => {
           ))}
         </div>
       )}
+      <section>
+        <h1>Cadastre uma Nova escola</h1>
+        <SchoolForm />
+      </section>
     </div>
   );
 };

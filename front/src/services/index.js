@@ -12,12 +12,12 @@ const findAllSchools = () => {
     .catch(error => error.data);
 };
 
-const createNewSchool = data => {
+const createNewSchool = ({ schoolName, directorName }) => {
   const options = {
     method: 'POST',
     url: `${localhost}/escola`,
     headers: { 'Content-Type': 'application/json' },
-    data,
+    data: { name: schoolName, director: directorName },
   };
 
   return axios

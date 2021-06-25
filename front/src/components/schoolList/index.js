@@ -8,7 +8,7 @@ const SchoolList = ({ school }) => {
     <div>
       <button type='button'>
         <h2>{school.name}</h2>
-        <p>{school.director}</p>
+        <p>{`Diretor: ${school.director}`}</p>
       </button>
       <button onClick={() => requestDeleteSchool(school._id)}>X</button>
     </div>
