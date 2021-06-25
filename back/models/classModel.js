@@ -3,9 +3,9 @@ const connection = require('../config/conn');
 
 const NAME_COLLECTION = 'classes';
 
-const createClass = async (name, id_professor, id_school) => {
+const createClass = async (name, id_school) => {
   const newClass = await connection().then(db =>
-    db.collection(NAME_COLLECTION).insertOne({ name, id_professor, id_school }),
+    db.collection(NAME_COLLECTION).insertOne({ name, id_school }),
   );
   return newClass;
 };

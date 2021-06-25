@@ -13,6 +13,17 @@ const validateCreateSchool = async (name, director) => {
   return { _id: newSchool.insertedId, name, director };
 };
 
+const validateFindAll = async () => {
+  const allSchools = await schoolModel.findAllSchools();
+  if (!allSchools.length) {
+    for (let i = 1; i <= 5; i += 1) {
+      await validateCreateSchool(`Escola ${i}`, `Fulano ${i}`);
+    }
+    return await schoolModel.findAllSchools();
+  }
+  return allSchools;
+};
+
 const validateFindSchoolById = async id => {
   validateBodySchool(id, 'id not found');
 
@@ -31,6 +42,7 @@ const validateDeleteSchoolById = async id => {
 
 module.exports = {
   validateCreateSchool,
+  validateFindAll,
   validateFindSchoolById,
   validateDeleteSchoolById,
 };

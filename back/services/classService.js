@@ -1,17 +1,29 @@
-const { classModel } = require('../models');
+const { classModel, schoolModel } = require('../models');
 
 const validateBodyClass = (field, message) => {
   if (!field) throw new Error(message);
 };
 
-const validateCreateClass = async (name, id_professor, id_school) => {
+const validateCreateClass = async (name, id_school) => {
   validateBodyClass(name, 'name not exist');
-  validateBodyClass(id_professor, 'id_professor not exist');
   validateBodyClass(id_school, 'id_school not exist');
 
-  const newClass = await classModel.createClass(name, id_professor, id_school);
+  const newClass = await classModel.createClass(name, id_school);
   validateBodyClass(newClass.result.ok, 'Error to create newClass');
-  return { _id: newClass.insertedId, name, id_professor, id_school };
+  return { _id: newClass.insertedId, name, id_school };
+};
+
+const validateFindAll = async () => {
+  const all = await classModel.findAllClasses();
+  if (!all.length) {
+    const schools = await schoolModel.findAllSchools();
+    const listPromises = schools.map((school, i) =>
+      validateCreateClass(`Turma ${i + 1}`, school._id),
+    );
+    await Promise.all(listPromises);
+    return await classModel.findAllClasses();
+  }
+  return all;
 };
 
 const validateFindClassById = async id => {
@@ -32,6 +44,7 @@ const validateDeleteClassById = async id => {
 
 module.exports = {
   validateCreateClass,
+  validateFindAll,
   validateFindClassById,
   validateDeleteClassById,
 };

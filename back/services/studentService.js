@@ -1,4 +1,4 @@
-const { studentModel } = require('../models');
+const { studentModel, classModel } = require('../models');
 
 const validateBodyStudent = (field, message) => {
   if (!field) throw new Error(message);
@@ -10,9 +10,32 @@ const validateCreateStudent = async (name, parents, contacts, id_class) => {
   validateBodyStudent(contacts, 'contacts not exist');
   validateBodyStudent(id_class, 'id_class not exist');
 
-  const newStudent = await studentModel.createStudent(name, parents, contacts, id_class);
+  const newStudent = await studentModel.createStudent(
+    name,
+    parents,
+    contacts,
+    id_class,
+  );
   validateBodyStudent(newStudent.result.ok, 'Error to create newStudent');
   return { _id: newStudent.insertedId, name, parents, contacts, id_class };
+};
+
+const validateFindAll = async () => {
+  const all = await studentModel.findAllStudent();
+  if (!all.length) {
+    const classes = await classModel.findAllClasses();
+    const listPromises = classes.map((classe, i) =>
+      validateCreateStudent(
+        `Fulano ${i + 1}`,
+        'Pai e Mãe',
+        '(83) 9876-5432',
+        classe._id,
+      ),
+    );
+    await Promise.all(listPromises);
+    return await studentModel.findAllStudent();
+  }
+  return all;
 };
 
 const validateFindStudentById = async id => {
@@ -33,6 +56,7 @@ const validateDeleteStudentById = async id => {
 
 module.exports = {
   validateCreateStudent,
+  validateFindAll,
   validateFindStudentById,
   validateDeleteStudentById,
 };

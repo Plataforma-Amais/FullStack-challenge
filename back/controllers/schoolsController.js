@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 
-const { schoolModel } = require('../models');
+// const { schoolModel } = require('../models');
 const { schoolService } = require('../services');
 
 const createSchool = async (req, res, next) => {
@@ -19,7 +19,7 @@ const createSchool = async (req, res, next) => {
 
 const findAllSchool = async (_req, res, next) => {
   try {
-    const allSchool = await schoolModel.findAllSchools();
+    const allSchool = await schoolService.validateFindAll();
     res.status(StatusCodes.OK).json(allSchool);
   } catch (error) {
     console.log(error);
@@ -48,7 +48,7 @@ const deleteSchoolById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const school = await schoolService.validateDeleteSchoolById(id);
-    res.status(StatusCodes.NO_CONTENT).json(school);
+    res.status(StatusCodes.OK).json(school);
   } catch (error) {
     console.log(error);
     next({

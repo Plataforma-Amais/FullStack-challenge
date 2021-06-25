@@ -1,14 +1,13 @@
 const { StatusCodes } = require('http-status-codes');
 
-const { classModel } = require('../models');
+// const { classModel } = require('../models');
 const { classService } = require('../services');
 
 const createClass = async (req, res, next) => {
   try {
-    const { name, id_professor, id_school } = req.body;
+    const { name, id_school } = req.body;
     const newClass = await classService.validateCreateClass(
       name,
-      id_professor,
       id_school,
     );
     res.status(StatusCodes.CREATED).json(newClass);
@@ -23,7 +22,7 @@ const createClass = async (req, res, next) => {
 
 const findAllClasses = async (_req, res, next) => {
   try {
-    const allClasses = await classModel.findAllClasses();
+    const allClasses = await classService.validateFindAll();
     res.status(StatusCodes.OK).json(allClasses);
   } catch (error) {
     console.log(error);

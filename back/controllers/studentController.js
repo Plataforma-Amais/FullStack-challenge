@@ -1,6 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
 
-const { studentModel } = require('../models');
+// const { studentModel } = require('../models');
 const { studentService } = require('../services');
 
 const createStudent = async (req, res, next) => {
@@ -24,7 +24,7 @@ const createStudent = async (req, res, next) => {
 
 const findAllStudent = async (_req, res, next) => {
   try {
-    const allStudent = await studentModel.findAllStudent();
+    const allStudent = await studentService.validateFindAll();
     res.status(StatusCodes.OK).json(allStudent);
   } catch (error) {
     console.log(error);
