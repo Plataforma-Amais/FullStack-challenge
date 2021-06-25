@@ -53,7 +53,7 @@ const deleteStudentById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const student = await studentService.validateDeleteStudentById(id);
-    res.status(StatusCodes.NO_CONTENT).json(student);
+    res.status(StatusCodes.OK).json(student);
   } catch (error) {
     console.log(error);
     next({

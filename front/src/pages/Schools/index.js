@@ -14,7 +14,7 @@ const Schools = () => {
     <div>
       <h1>ESCOLAS</h1>
       {!schools.length ? (
-        <h1>LOADING...</h1>
+        <p>Não Existe Escolas Cadastradas</p>
       ) : (
         <div>
           {schools.map((school, i) => (

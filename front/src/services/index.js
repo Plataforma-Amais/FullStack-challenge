@@ -59,10 +59,38 @@ const findAllClasses = () => {
     .catch(error => error.data);
 };
 
+const deleteClasses = id => {
+  const options = {
+    method: 'DELETE',
+    url: `${localhost}/turma/${id}`,
+  };
+
+  return axios
+    .request(options)
+    .then(response => response.data)
+    .catch(error => error.data);
+};
+
+const createNewClass = ({ name, id_school }) => {
+  const options = {
+    method: 'POST',
+    url: `${localhost}/turma`,
+    headers: { 'Content-Type': 'application/json' },
+    data: { name, id_school },
+  };
+
+  return axios
+    .request(options)
+    .then(response => response.data)
+    .catch(error => error.data);
+};
+
 export {
   findAllSchools,
   createNewSchool,
   deleteSchool,
   findSchoolById,
   findAllClasses,
+  deleteClasses,
+  createNewClass,
 };

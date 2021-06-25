@@ -48,7 +48,7 @@ const deleteTeacherById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const teacher = await teacherService.validateDeleteTeacherById(id);
-    res.status(StatusCodes.NO_CONTENT).json(teacher);
+    res.status(StatusCodes.OK).json(teacher);
   } catch (error) {
     console.log(error);
     next({

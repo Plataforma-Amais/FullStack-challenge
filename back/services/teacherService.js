@@ -16,18 +16,14 @@ const validateCreateTeacher = async (name, materia, id_class) => {
 
 const validateFindAll = async () => {
   const all = await teacherModel.findAllTeachers();
-  if (!all.length) {
-    const classes = await classModel.findAllClasses();
-    const listPromises = classes.map((classe, i) =>
-      validateCreateTeacher(
-        `Fulano ${i + 1}`,
-        `Matéria ${i + 1}`,
-        classe._id,
-      ),
-    );
-    await Promise.all(listPromises);
-    return await teacherModel.findAllTeachers();
-  }
+  // if (!all.length) {
+  //   const classes = await classModel.findAllClasses();
+  //   const listPromises = classes.map((classe, i) =>
+  //     validateCreateTeacher(`Fulano ${i + 1}`, `Matéria ${i + 1}`, classe._id),
+  //   );
+  //   await Promise.all(listPromises);
+  //   return await teacherModel.findAllTeachers();
+  // }
   return all;
 };
 

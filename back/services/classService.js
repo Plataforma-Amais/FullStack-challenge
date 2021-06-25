@@ -15,14 +15,18 @@ const validateCreateClass = async (name, id_school) => {
 
 const validateFindAll = async () => {
   const all = await classModel.findAllClasses();
-  if (!all.length) {
-    const schools = await schoolModel.findAllSchools();
-    const listPromises = schools.map((school, i) =>
-      validateCreateClass(`Turma ${i + 1}`, school._id),
-    );
-    await Promise.all(listPromises);
-    return await classModel.findAllClasses();
-  }
+  // if (!all.length) {
+  //   const schools = await schoolModel.findAllSchools();
+  //   let count = 1;
+  //   const listPromises = schools.map(school => {
+  //     for (let i = count; i <= count + 2; i += 1) {
+  //       validateCreateClass(`Turma ${i}`, school._id);
+  //     }
+  //     count += 3;
+  //   });
+  //   await Promise.all(listPromises);
+  //   return await classModel.findAllClasses();
+  // }
   return all;
 };
 

@@ -22,19 +22,23 @@ const validateCreateStudent = async (name, parents, contacts, id_class) => {
 
 const validateFindAll = async () => {
   const all = await studentModel.findAllStudent();
-  if (!all.length) {
-    const classes = await classModel.findAllClasses();
-    const listPromises = classes.map((classe, i) =>
-      validateCreateStudent(
-        `Fulano ${i + 1}`,
-        'Pai e Mãe',
-        '(83) 9876-5432',
-        classe._id,
-      ),
-    );
-    await Promise.all(listPromises);
-    return await studentModel.findAllStudent();
-  }
+  // if (!all.length) {
+  //   const classes = await classModel.findAllClasses();
+  //   let count = 1;
+  //   const listPromises = classes.map(classe => {
+  //     for (let i = count; i <= count + 2; i += 1) {
+  //       validateCreateStudent(
+  //         `Fulano ${i}`,
+  //         'Pai e Mãe',
+  //         '(83) 9876-5432',
+  //         classe._id,
+  //       );
+  //     }
+  //     count += 3;
+  //   });
+  //   await Promise.all(listPromises);
+  //   return await studentModel.findAllStudent();
+  // }
   return all;
 };
 

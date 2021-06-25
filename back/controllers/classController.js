@@ -51,7 +51,7 @@ const deleteClassById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const classResult = await classService.validateDeleteClassById(id);
-    res.status(StatusCodes.NO_CONTENT).json(classResult);
+    res.status(StatusCodes.OK).json(classResult);
   } catch (error) {
     console.log(error);
     next({

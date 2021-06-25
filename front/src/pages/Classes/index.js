@@ -1,46 +1,42 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/context';
 import { useParams } from 'react-router-dom';
-import { findSchoolById, findAllClasses } from '../../services';
+import { findSchoolById } from '../../services';
 import ClassesList from '../../components/classesList';
+import ClassForm from '../../components/classForm';
 
 const Classes = () => {
   const params = useParams();
   const { escolaId } = params;
   const [school, setSchool] = useState('');
-  const { classes, setClasses } = useContext(Context);
+  const { classes, requestFindAllClasses } = useContext(Context);
 
   const requestGetSchoolById = async () => {
     const result = await findSchoolById(escolaId);
     setSchool(result);
   };
 
-  const requestAllClasses = async () => {
-    const result = await findAllClasses();
-    const filterClassesBySchool = result.filter(
-      ({ id_school }) => id_school === escolaId,
-    );
-    // console.log(filterClassesBySchool);
-    setClasses(filterClassesBySchool);
-  };
-
   useEffect(() => {
     requestGetSchoolById();
-    requestAllClasses();
+    requestFindAllClasses(escolaId);
   }, []);
 
   return (
     <div>
       <h1>{`Turmas da ${school.name}`}</h1>
       {!classes.length ? (
-        <h1>LOADING...</h1>
+        <p>Não existe turmas cadastradas</p>
       ) : (
         <div>
           {classes.map((classe, i) => (
-            <ClassesList key={i} classe={classe} />
+            <ClassesList key={i} classe={classe} id_school={escolaId} />
           ))}
         </div>
       )}
+      <section>
+        <h1>Cadastre uma Nova escola</h1>
+        <ClassForm id_school={escolaId} />
+      </section>
     </div>
   );
 };
