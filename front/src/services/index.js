@@ -12,6 +12,18 @@ const findAllSchools = () => {
     .catch(error => error.data);
 };
 
+const findSchoolById = id => {
+  const options = {
+    method: 'GET',
+    url: `${localhost}/escola/${id}`,
+  };
+
+  return axios
+    .request(options)
+    .then(response => response.data)
+    .catch(error => error.data);
+};
+
 const createNewSchool = ({ schoolName, directorName }) => {
   const options = {
     method: 'POST',
@@ -38,4 +50,19 @@ const deleteSchool = id => {
     .catch(error => error.data);
 };
 
-export { findAllSchools, createNewSchool, deleteSchool };
+const findAllClasses = () => {
+  const options = { method: 'GET', url: `${localhost}/turmas` };
+
+  return axios
+    .request(options)
+    .then(response => response.data)
+    .catch(error => error.data);
+};
+
+export {
+  findAllSchools,
+  createNewSchool,
+  deleteSchool,
+  findSchoolById,
+  findAllClasses,
+};

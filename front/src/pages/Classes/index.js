@@ -1,26 +1,46 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../context/context';
-import SchoolList from '../../components/schoolList';
+import { useParams } from 'react-router-dom';
+import { findSchoolById, findAllClasses } from '../../services';
+import ClassesList from '../../components/classesList';
 
 const Classes = () => {
+  const params = useParams();
+  const { escolaId } = params;
+  const [school, setSchool] = useState('');
   const { classes, setClasses } = useContext(Context);
 
+  const requestGetSchoolById = async () => {
+    const result = await findSchoolById(escolaId);
+    setSchool(result);
+  };
+
+  const requestAllClasses = async () => {
+    const result = await findAllClasses();
+    const filterClassesBySchool = result.filter(
+      ({ id_school }) => id_school === escolaId,
+    );
+    // console.log(filterClassesBySchool);
+    setClasses(filterClassesBySchool);
+  };
+
   useEffect(() => {
-    // requestFindAllClasses();
+    requestGetSchoolById();
+    requestAllClasses();
   }, []);
 
   return (
     <div>
-      <h1>Turmas da Escola</h1>
-      {/* {!Classes.length ? (
+      <h1>{`Turmas da ${school.name}`}</h1>
+      {!classes.length ? (
         <h1>LOADING...</h1>
       ) : (
         <div>
-          {Classes.map((school, i) => (
-            <SchoolList key={i} school={school} />
+          {classes.map((classe, i) => (
+            <ClassesList key={i} classe={classe} />
           ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 };
